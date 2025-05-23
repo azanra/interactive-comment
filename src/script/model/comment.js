@@ -11,7 +11,7 @@ export default function Comment(attribute) {
   this.user = attribute.user;
   this.replies = attribute.replies;
   this.type = "comment";
-  this.upvoted = false;
+  this.upvoted = null;
 }
 
 Comment.prototype.addReplies = function (replies) {
@@ -31,4 +31,12 @@ Comment.prototype.renderDate = function () {
   const currentDate = new Date();
   const dateDifference = formatDistance(this.createdAt, currentDate);
   return dateDifference;
+};
+
+Comment.prototype.renderScore = function () {
+  if (this.upvoted === true) {
+    this.score === this.score++;
+  } else if (this.upvoted === false) {
+    this.score === this.score--;
+  }
 };
