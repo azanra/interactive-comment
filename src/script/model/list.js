@@ -13,3 +13,11 @@ List.prototype.deleteRepliesInComment = function (id, repliesId) {
     }
   }
 };
+
+List.prototype.deleteData = function (id) {
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      delete this.list[key];
+    }
+  }
+};
