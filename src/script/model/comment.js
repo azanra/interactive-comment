@@ -40,3 +40,9 @@ Comment.prototype.renderScore = function () {
     this.score === this.score--;
   }
 };
+
+Comment.prototype.deleteReplies = function (id) {
+  this.replies = this.replies.filter((item) => {
+    return item.id !== id;
+  });
+};
