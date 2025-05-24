@@ -21,3 +21,11 @@ List.prototype.deleteData = function (id) {
     }
   }
 };
+
+List.prototype.updateAttribute = function (id, attribute, newValue) {
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      this.list[key].updateAttribute(attribute, newValue);
+    }
+  }
+};

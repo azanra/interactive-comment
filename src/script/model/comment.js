@@ -10,8 +10,8 @@ export default function Comment(attribute) {
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
-  this.type = "comment";
   this.upvoted = null;
+  this.type = "comment";
 }
 
 Comment.prototype.addReplies = function (replies) {
@@ -45,4 +45,8 @@ Comment.prototype.deleteReplies = function (id) {
   this.replies = this.replies.filter((item) => {
     return item.id !== id;
   });
+};
+
+Comment.prototype.updateAttribute = function (attribute, newValue) {
+  this[attribute] = newValue;
 };
