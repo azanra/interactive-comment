@@ -53,6 +53,7 @@ export const initialData = {
         },
         username: "ramsesmiron",
       },
+      replies: [],
       type: "replies",
     },
     {
@@ -69,6 +70,7 @@ export const initialData = {
         },
         username: "juliusomo",
       },
+      replies: [],
       type: "replies",
     },
   ],

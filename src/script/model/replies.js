@@ -9,7 +9,7 @@ export default function Replies(attribute) {
   this.replies = attribute.replies;
   this.upvoted = null;
   this.type = "replies";
-  this.replyingTo = attribute.replying;
+  this.replyingTo = attribute.replyingTo;
 }
 
 Object.setPrototypeOf(Replies.prototype, Comment.prototype);
