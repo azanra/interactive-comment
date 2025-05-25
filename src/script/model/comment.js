@@ -43,7 +43,7 @@ Comment.prototype.renderScore = function () {
 
 Comment.prototype.deleteReplies = function (id) {
   this.replies = this.replies.filter((item) => {
-    return item.id !== id;
+    return item !== id;
   });
 };
 
