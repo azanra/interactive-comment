@@ -1,6 +1,9 @@
 import Comment from "./comment.js";
 
 export default function Replies(attribute) {
+  if (!new.target) {
+    throw new Error("Use new to call the constructor object");
+  }
   this.id = attribute.id;
   this.content = attribute.content;
   this.createdAt = this.setCurrentDate();
