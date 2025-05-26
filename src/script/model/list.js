@@ -54,3 +54,21 @@ List.prototype.setUpvote = function (id) {
     }
   }
 };
+
+List.prototype.returnDate = function (id) {
+  let dateDifference;
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      dateDifference = this.list[key].renderDate();
+    }
+  }
+  return dateDifference;
+};
+
+List.prototype.setScore = function (id) {
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      this.list[key].renderScore();
+    }
+  }
+};

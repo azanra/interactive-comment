@@ -26,3 +26,6 @@ console.log(data);
 
 data.setUpvote(1);
 data.addReply(1, data.list[4]);
+console.log(data.returnDate(1));
+data.setScore(1);
+console.log(data.list[1]);
