@@ -15,7 +15,7 @@ export default function Comment(attribute) {
 }
 
 Comment.prototype.addReplies = function (replies) {
-  this.replies.push(replies);
+  this.replies.push(replies.id);
 };
 
 Comment.prototype.setUpvoted = function () {

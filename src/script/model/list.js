@@ -38,3 +38,19 @@ List.prototype.updateAttribute = function (id, attribute, newValue) {
     }
   }
 };
+
+List.prototype.addReply = function (id, replies) {
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      this.list[key].addReplies(replies);
+    }
+  }
+};
+
+List.prototype.setUpvote = function (id) {
+  for (const key in this.list) {
+    if (Number(key) === id) {
+      this.list[key].setUpvoted();
+    }
+  }
+};
