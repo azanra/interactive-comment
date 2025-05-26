@@ -17,8 +17,17 @@ List.prototype.deleteNestedReplies = function (id, repliesId) {
 List.prototype.deleteData = function (id) {
   for (const key in this.list) {
     if (Number(key) === id) {
+      this.checkReplies(this.list[key].replies);
       delete this.list[key];
     }
+  }
+};
+
+List.prototype.checkReplies = function (replies) {
+  if (replies.length > 0) {
+    replies.map((item) => {
+      delete this.list[item];
+    });
   }
 };
 

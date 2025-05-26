@@ -30,3 +30,5 @@ const loadData = (function () {
 loadData.initializeData(initialData);
 const data = loadData.list;
 console.log(data);
+
+data.deleteData(2);

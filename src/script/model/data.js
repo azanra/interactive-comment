@@ -20,7 +20,7 @@ export const initialData = {
         },
         username: "amyrobson",
       },
-      replies: [3],
+      replies: [],
       type: "comment",
     },
     {
