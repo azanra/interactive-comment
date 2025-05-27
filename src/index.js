@@ -26,3 +26,6 @@ const data = loadInitialData.list;
 console.log(data);
 
 localData.storeData(data);
+
+const loadedData = localData.loadData();
+console.log(loadedData);
