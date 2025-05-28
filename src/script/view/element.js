@@ -19,5 +19,11 @@ export const element = (function () {
     }
   };
 
-  return { createDom, setMultipleAttr, setTextContent };
+  const setUniqueId = (attribute, id) => {
+    if (attribute.uniqueElement === true) {
+      attribute.elementAttribute.id = `${attribute.elementAttribute.class}-${id}`;
+    }
+  };
+
+  return { createDom, setMultipleAttr, setTextContent, setUniqueId };
 })();
