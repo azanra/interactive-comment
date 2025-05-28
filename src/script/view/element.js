@@ -23,7 +23,9 @@ export const element = (function () {
 
   const setUniqueId = (attribute, id) => {
     if (attribute.uniqueElement === true) {
-      attribute.elementAttribute.id = `${attribute.elementAttribute.class}-${id}`;
+      const copyAttribute = JSON.parse(JSON.stringify(attribute));
+      copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
+      return copyAttribute;
     }
   };
 
