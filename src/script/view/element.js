@@ -1,6 +1,8 @@
+import { attribute } from "./attribute";
+
 export const element = (function () {
-  const createDom = (attribute) => {
-    const parentElement = document.querySelector(attribute.parentElement);
+  const createDom = (attribute, id) => {
+    const parentElement = referenceElement(attribute, id);
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
@@ -22,6 +24,14 @@ export const element = (function () {
   const setUniqueId = (attribute, id) => {
     if (attribute.uniqueElement === true) {
       attribute.elementAttribute.id = `${attribute.elementAttribute.class}-${id}`;
+    }
+  };
+
+  const referenceElement = (attribute, id) => {
+    if (attribute.uniqueParent === true && id) {
+      return document.querySelector(`${attribute.parentElement}-${id}`);
+    } else {
+      return document.querySelector(attribute.parentElement);
     }
   };
 
