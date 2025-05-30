@@ -1,5 +1,3 @@
-import { attribute } from "./attribute";
-
 export const element = (function () {
   const createDom = (attribute, id) => {
     const parentElement = referenceElement(attribute, id);
@@ -37,5 +35,27 @@ export const element = (function () {
     }
   };
 
-  return { createDom, setMultipleAttr, setTextContent, setUniqueId };
+  const createSvgDom = (attribute, id) => {
+    const parentElement = referenceElement(attribute, id);
+    const svg = attribute.svg;
+    const svgElement = document.createElementNS(svg.uri, svg.name);
+    setMultipleAttr(svgElement, svg.elementAttribute);
+    svgElement.setAttributeNS(
+      svg.xmlnsAttribute.nameSpace,
+      svg.xmlnsAttribute.name,
+      svg.xmlnsAttribute.value
+    );
+    const pathElement = document.createElementNS(svg.path.uri, svg.path.name);
+    setMultipleAttr(pathElement, svg.path.elementAttribute);
+    svgElement.append(pathElement);
+    parentElement.append(svgElement);
+  };
+
+  return {
+    createDom,
+    setMultipleAttr,
+    setTextContent,
+    setUniqueId,
+    createSvgDom,
+  };
 })();
