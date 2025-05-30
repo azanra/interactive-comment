@@ -8,6 +8,7 @@ export const attribute = {
       },
       uniqueParent: false,
       uniqueElement: true,
+      uniqueText: false,
     },
     actionContainer: {
       parentElement: "#commentContainer",
@@ -17,6 +18,7 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
+      uniqueText: false,
     },
     increContainer: {
       parentElement: "#actionContainer",
@@ -26,6 +28,7 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
+      uniqueText: false,
     },
     increBtn: {
       parentElement: "#increContainer",
@@ -36,6 +39,27 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
+      uniqueText: false,
+    },
+    amountContainer: {
+      parentElement: "#actionContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "amountContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+    },
+    amountText: {
+      parentElement: "#amountContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "amountText",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: true,
     },
   },
   svg: {
@@ -43,6 +67,7 @@ export const attribute = {
       parentElement: "#increBtn",
       uniqueParent: true,
       uniqueElement: false,
+      uniqueText: false,
       svg: {
         uri: "http://www.w3.org/2000/svg",
         name: "svg",
