@@ -1,9 +1,10 @@
 export const element = (function () {
-  const createDom = (attribute, id) => {
-    const parentElement = referenceElement(attribute, id);
+  const createDom = (attribute, data) => {
+    const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
+    populateUniqueText(newElement, attribute, data.score);
     parentElement.append(newElement);
   };
 
@@ -24,6 +25,12 @@ export const element = (function () {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
+    }
+  };
+
+  const populateUniqueText = (element, attribute, textContent) => {
+    if (attribute.uniqueText === true) {
+      setTextContent(element, textContent);
     }
   };
 
