@@ -9,6 +9,7 @@ export const attribute = {
       uniqueParent: false,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     actionContainer: {
       parentElement: "#commentContainer",
@@ -19,6 +20,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     increContainer: {
       parentElement: "#actionContainer",
@@ -29,6 +31,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     increBtn: {
       parentElement: "#increContainer",
@@ -40,6 +43,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     amountContainer: {
       parentElement: "#actionContainer",
@@ -50,6 +54,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     amountText: {
       parentElement: "#amountContainer",
@@ -60,6 +65,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: true,
+      isImage: false,
     },
     decreContainer: {
       parentElement: "#actionContainer",
@@ -70,6 +76,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
     },
     decreBtn: {
       parentElement: "#decreContainer",
@@ -80,6 +87,62 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       uniqueText: false,
+      isImage: false,
+    },
+    contentContainer: {
+      parentElement: "#commentContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "contentContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+      isImage: false,
+    },
+    infoContainer: {
+      parentElement: "#contentContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "infoContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+      isImage: false,
+    },
+    userInfoContainer: {
+      parentElement: "#infoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "userInfoContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+      isImage: false,
+    },
+    userImgContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "userImgContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+      isImage: false,
+    },
+    userImg: {
+      parentElement: "#userImgContainer",
+      newElement: "img",
+      elementAttribute: {
+        class: "userImg",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+      isImage: true,
     },
   },
   svg: {
@@ -88,6 +151,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: false,
       uniqueText: false,
+      isImage: false,
       svg: {
         uri: "http://www.w3.org/2000/svg",
         name: "svg",
@@ -115,6 +179,7 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: false,
       uniqueText: false,
+      isImage: false,
       svg: {
         uri: "http://www.w3.org/2000/svg",
         name: "svg",
