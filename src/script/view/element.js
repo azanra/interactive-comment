@@ -1,7 +1,10 @@
+import { sr } from "date-fns/locale";
+
 export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
+    createImg(attribute, data.user.image.png);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
     populateUniqueText(newElement, attribute, data.score);
@@ -58,6 +61,11 @@ export const element = (function () {
     parentElement.append(svgElement);
   };
 
+  const createImg = (attribute, src) => {
+    if (attribute.isImage === true) {
+      attribute.elementAttribute.src = src;
+    }
+  };
   return {
     createDom,
     setMultipleAttr,
