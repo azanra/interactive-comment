@@ -1,17 +1,12 @@
 import juliomoPng from "../../asset/resource/avatars/image-juliusomo.png";
-import juliomoWebp from "../../asset/resource/avatars/image-juliusomo.webp";
 import amyPng from "../../asset/resource/avatars/image-amyrobson.png";
-import amyWebp from "../../asset/resource/avatars/image-amyrobson.webp";
 import maxPng from "../../asset/resource/avatars/image-maxblagun.png";
-import maxWebp from "../../asset/resource/avatars/image-maxblagun.webp";
 import ramPng from "../../asset/resource/avatars/image-ramsesmiron.png";
-import ramWebp from "../../asset/resource/avatars/image-ramsesmiron.webp";
 
 export const initialData = {
   currentUser: {
     image: {
       png: juliomoPng,
-      webp: juliomoWebp,
     },
     username: "juliusomo",
   },
@@ -25,7 +20,6 @@ export const initialData = {
       user: {
         image: {
           png: amyPng,
-          webp: amyWebp,
         },
         username: "amyrobson",
       },
@@ -41,7 +35,6 @@ export const initialData = {
       user: {
         image: {
           png: maxPng,
-          webp: maxWebp,
         },
         username: "maxblagun",
       },
@@ -58,7 +51,6 @@ export const initialData = {
       user: {
         image: {
           png: ramPng,
-          webp: ramWebp,
         },
         username: "ramsesmiron",
       },
@@ -75,7 +67,6 @@ export const initialData = {
       user: {
         image: {
           png: juliomoPng,
-          webp: juliomoWebp,
         },
         username: "juliusomo",
       },
