@@ -1,8 +1,17 @@
+import juliomoPng from "../../asset/resource/avatars/image-juliusomo.png";
+import juliomoWebp from "../../asset/resource/avatars/image-juliusomo.webp";
+import amyPng from "../../asset/resource/avatars/image-amyrobson.png";
+import amyWebp from "../../asset/resource/avatars/image-amyrobson.webp";
+import maxPng from "../../asset/resource/avatars/image-maxblagun.png";
+import maxWebp from "../../asset/resource/avatars/image-maxblagun.webp";
+import ramPng from "../../asset/resource/avatars/image-ramsesmiron.png";
+import ramWebp from "../../asset/resource/avatars/image-ramsesmiron.webp";
+
 export const initialData = {
   currentUser: {
     image: {
-      png: "./images/avatars/image-juliusomo.png",
-      webp: "./images/avatars/image-juliusomo.webp",
+      png: juliomoPng,
+      webp: juliomoWebp,
     },
     username: "juliusomo",
   },
@@ -15,8 +24,8 @@ export const initialData = {
       score: 12,
       user: {
         image: {
-          png: "./images/avatars/image-amyrobson.png",
-          webp: "./images/avatars/image-amyrobson.webp",
+          png: amyPng,
+          webp: amyWebp,
         },
         username: "amyrobson",
       },
@@ -31,8 +40,8 @@ export const initialData = {
       score: 5,
       user: {
         image: {
-          png: "./images/avatars/image-maxblagun.png",
-          webp: "./images/avatars/image-maxblagun.webp",
+          png: maxPng,
+          webp: maxWebp,
         },
         username: "maxblagun",
       },
@@ -48,8 +57,8 @@ export const initialData = {
       replyingTo: "maxblagun",
       user: {
         image: {
-          png: "./images/avatars/image-ramsesmiron.png",
-          webp: "./images/avatars/image-ramsesmiron.webp",
+          png: ramPng,
+          webp: ramWebp,
         },
         username: "ramsesmiron",
       },
@@ -65,8 +74,8 @@ export const initialData = {
       replyingTo: "ramsesmiron",
       user: {
         image: {
-          png: "./images/avatars/image-juliusomo.png",
-          webp: "./images/avatars/image-juliusomo.webp",
+          png: juliomoPng,
+          webp: juliomoWebp,
         },
         username: "juliusomo",
       },
