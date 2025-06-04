@@ -1,31 +1,9 @@
 import "./style.css";
-import { initialData } from "./script/model/data.js";
-import Comment from "./script/model/comment.js";
-import Replies from "./script/model/replies.js";
-import List from "./script/model/list.js";
 import { localData } from "./script/model/localStorage.js";
+import { card } from "./script/view/card.js";
 
-const loadInitialData = (function () {
-  const list = new List();
-  const initializeData = (data) => {
-    data.comments.map((item) => {
-      if (item.type === "comment") {
-        const comment = new Comment(item);
-        list.addData(comment);
-      } else if (item.type === "replies") {
-        const replies = new Replies(item);
-        list.addData(replies);
-      }
-    });
-  };
-  return { list, initializeData };
-})();
+const data = localData.loadData();
+console.log("local storage", data);
 
-loadInitialData.initializeData(initialData);
-const data = loadInitialData.list;
-console.log(data);
-
-localData.storeData(data);
-
-const loadedData = localData.loadData();
-console.log(loadedData);
+card.createDom(data.list[1]);
+card.createDom(data.list[2]);

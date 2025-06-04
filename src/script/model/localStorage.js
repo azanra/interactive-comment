@@ -1,4 +1,5 @@
 import Comment from "./comment.js";
+import { initialData } from "./data.js";
 import List from "./list.js";
 import Replies from "./replies.js";
 
@@ -23,8 +24,31 @@ export const localData = (function () {
         }
       }
       return list;
+    } else {
+      const initializeData = loadInitialData.initializeData(initialData);
+      storeData(initializeData);
+      return initializeData;
     }
   };
 
   return { storeData, loadData };
+})();
+
+const loadInitialData = (function () {
+  const list = new List();
+
+  const initializeData = (data) => {
+    data.comments.map((item) => {
+      if (item.type === "comment") {
+        const comment = new Comment(item);
+        list.addData(comment);
+      } else if (item.type === "replies") {
+        const replies = new Replies(item);
+        list.addData(replies);
+      }
+    });
+    return list;
+  };
+
+  return { initializeData };
 })();
