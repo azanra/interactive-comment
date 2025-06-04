@@ -8,8 +8,6 @@ export const attribute = {
       },
       uniqueParent: false,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     actionContainer: {
       parentElement: "#commentContainer",
@@ -19,8 +17,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     increContainer: {
       parentElement: "#actionContainer",
@@ -30,8 +26,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     increBtn: {
       parentElement: "#increContainer",
@@ -42,8 +36,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     amountContainer: {
       parentElement: "#actionContainer",
@@ -53,8 +45,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     amountText: {
       parentElement: "#amountContainer",
@@ -62,10 +52,9 @@ export const attribute = {
       elementAttribute: {
         class: "amountText",
       },
+      dataText: "score",
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: true,
-      isImage: false,
     },
     decreContainer: {
       parentElement: "#actionContainer",
@@ -75,8 +64,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     decreBtn: {
       parentElement: "#decreContainer",
@@ -86,8 +73,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     contentContainer: {
       parentElement: "#commentContainer",
@@ -97,8 +82,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     infoContainer: {
       parentElement: "#contentContainer",
@@ -108,8 +91,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     userInfoContainer: {
       parentElement: "#infoContainer",
@@ -119,8 +100,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     userImgContainer: {
       parentElement: "#userInfoContainer",
@@ -130,8 +109,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
-      isImage: false,
     },
     userImg: {
       parentElement: "#userImgContainer",
@@ -141,7 +118,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
       isImage: true,
     },
   },
@@ -150,8 +126,6 @@ export const attribute = {
       parentElement: "#increBtn",
       uniqueParent: true,
       uniqueElement: false,
-      uniqueText: false,
-      isImage: false,
       svg: {
         uri: "http://www.w3.org/2000/svg",
         name: "svg",
@@ -178,8 +152,6 @@ export const attribute = {
       parentElement: "#decreBtn",
       uniqueParent: true,
       uniqueElement: false,
-      uniqueText: false,
-      isImage: false,
       svg: {
         uri: "http://www.w3.org/2000/svg",
         name: "svg",
