@@ -15,5 +15,11 @@ export const card = (function () {
     }
   };
 
-  return { createDom };
+  const renderCard = (data) => {
+    for (const key in data) {
+      createDom(data[key]);
+    }
+  };
+
+  return { createDom, renderCard };
 })();
