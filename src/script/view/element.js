@@ -1,5 +1,3 @@
-import { sr } from "date-fns/locale";
-
 export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data.id);
@@ -62,10 +60,11 @@ export const element = (function () {
   };
 
   const createImg = (attribute, src) => {
-    if (attribute.isImage === true) {
+    if (attribute.hasOwnProperty("isImage")) {
       attribute.elementAttribute.src = src;
     }
   };
+
   return {
     createDom,
     setMultipleAttr,
