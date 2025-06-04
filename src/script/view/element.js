@@ -3,9 +3,9 @@ export const element = (function () {
     const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
     createImg(attribute, data.user.image.png);
+    populateUniqueText(attribute, data);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
-    populateUniqueText(newElement, attribute, data.score);
     parentElement.append(newElement);
   };
 
@@ -26,12 +26,6 @@ export const element = (function () {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
-    }
-  };
-
-  const populateUniqueText = (element, attribute, textContent) => {
-    if (attribute.uniqueText === true) {
-      setTextContent(element, textContent);
     }
   };
 
@@ -62,6 +56,12 @@ export const element = (function () {
   const createImg = (attribute, src) => {
     if (attribute.hasOwnProperty("isImage")) {
       attribute.elementAttribute.src = src;
+    }
+  };
+
+  const populateUniqueText = (attribute, data) => {
+    if (attribute.hasOwnProperty("dataText")) {
+      attribute.textContent = data[attribute.dataText];
     }
   };
 
