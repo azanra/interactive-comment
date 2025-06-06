@@ -61,7 +61,16 @@ export const element = (function () {
 
   const populateUniqueText = (attribute, data) => {
     if (attribute.hasOwnProperty("dataText")) {
-      attribute.textContent = data[attribute.dataText];
+      attribute.textContent = nestedTextContenTValue(attribute, data);
+    }
+  };
+
+  const nestedTextContenTValue = (attribute, data) => {
+    if (attribute.dataText.includes("-")) {
+      const dataText = attribute.dataText.split("-");
+      return data[`${dataText[0]}`][`${dataText[1]}`];
+    } else {
+      return data[attribute.dataText];
     }
   };
 
