@@ -1,6 +1,6 @@
 export const element = (function () {
   const createDom = (attribute, data) => {
-    const parentElement = referenceElement(attribute, data.id);
+    const parentElement = referenceElement(attribute, data);
     const newElement = document.createElement(attribute.newElement);
     createImg(attribute, data.user.image.png);
     populateUniqueText(attribute, data);
@@ -29,16 +29,20 @@ export const element = (function () {
     }
   };
 
-  const referenceElement = (attribute, id) => {
-    if (attribute.uniqueParent === true && id) {
-      return document.querySelector(`${attribute.parentElement}-${id}`);
+  const referenceElement = (attribute, data) => {
+    if (attribute.uniqueParent && data.type === "replies") {
+      return document.querySelector(
+        `${attribute.parentElement}-${data.parent}`
+      );
+    } else if (attribute.uniqueParent && data.id) {
+      return document.querySelector(`${attribute.parentElement}-${data.id}`);
     } else {
       return document.querySelector(attribute.parentElement);
     }
   };
 
-  const createSvgDom = (attribute, id) => {
-    const parentElement = referenceElement(attribute, id);
+  const createSvgDom = (attribute, data) => {
+    const parentElement = referenceElement(attribute, data);
     const svg = attribute.svg;
     const svgElement = document.createElementNS(svg.uri, svg.name);
     setMultipleAttr(svgElement, svg.elementAttribute);
@@ -61,11 +65,11 @@ export const element = (function () {
 
   const populateUniqueText = (attribute, data) => {
     if (attribute.hasOwnProperty("dataText")) {
-      attribute.textContent = nestedTextContenTValue(attribute, data);
+      attribute.textContent = nestedTextContentValue(attribute, data);
     }
   };
 
-  const nestedTextContenTValue = (attribute, data) => {
+  const nestedTextContentValue = (attribute, data) => {
     if (attribute.dataText.includes("-")) {
       const dataText = attribute.dataText.split("-");
       return data[`${dataText[0]}`][`${dataText[1]}`];
