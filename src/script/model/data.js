@@ -48,13 +48,14 @@ export const initialData = {
       createdAt: "1 week ago",
       score: 4,
       replyingTo: "maxblagun",
+      parent: 2,
       user: {
         image: {
           png: ramPng,
         },
         username: "ramsesmiron",
       },
-      replies: [],
+      replies: [5],
       type: "replies",
     },
     {
@@ -64,11 +65,28 @@ export const initialData = {
       createdAt: "2 days ago",
       score: 2,
       replyingTo: "ramsesmiron",
+      parent: 2,
       user: {
         image: {
           png: juliomoPng,
         },
         username: "juliusomo",
+      },
+      replies: [],
+      type: "replies",
+    },
+    {
+      id: 5,
+      content: "shutup",
+      createdAt: "1 week ago",
+      score: 4,
+      replyingTo: "ramsesmiron",
+      parent: 3,
+      user: {
+        image: {
+          png: ramPng,
+        },
+        username: "retard",
       },
       replies: [],
       type: "replies",
