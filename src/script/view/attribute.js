@@ -1,12 +1,21 @@
 export const attribute = {
   card: {
-    container: {
+    commentContent: {
       parentElement: ".section",
+      newElement: "div",
+      elementAttribute: {
+        class: "commentContent",
+      },
+      uniqueParent: false,
+      uniqueElement: true,
+    },
+    commentContainer: {
+      parentElement: "#commentContent",
       newElement: "div",
       elementAttribute: {
         class: "commentContainer",
       },
-      uniqueParent: false,
+      uniqueParent: true,
       uniqueElement: true,
     },
     actionContainer: {
@@ -119,6 +128,25 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
       isImage: true,
+    },
+    userNameContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "userNameContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    userName: {
+      parentElement: "#userNameContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "userName",
+      },
+      dataText: `user-username`,
+      uniqueParent: true,
+      uniqueElement: true,
     },
   },
   svg: {
