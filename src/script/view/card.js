@@ -6,16 +6,38 @@ export const card = (function () {
   const svgAttribute = attribute.svg;
 
   const createDom = (data) => {
-    commendDom(data);
+    commentDom(data);
+    repliesDom(data);
   };
 
-  const commendDom = (data) => {
+  const commentDom = (data) => {
     if (data.type === "comment") {
       for (const key in cardAttribute) {
         const attribute = element.setUniqueId(cardAttribute[key], data.id);
         element.createDom(attribute, data);
       }
       svgDom(data);
+    }
+  };
+
+  const repliesDom = (data) => {
+    if (data.type === "replies") {
+      for (const key in cardAttribute) {
+        let attribute = element.setUniqueId(cardAttribute[key], data.id);
+        attribute = changeRepliesParent(attribute);
+        element.createDom(attribute, data);
+      }
+    }
+  };
+
+  const changeRepliesParent = (attribute) => {
+    if (attribute.elementAttribute.class === "commentContent") {
+      const newParentAttribute = JSON.parse(JSON.stringify(attribute));
+      newParentAttribute.parentElement = "#commentContent";
+      newParentAttribute.uniqueParent = true;
+      return newParentAttribute;
+    } else {
+      return attribute;
     }
   };
 
