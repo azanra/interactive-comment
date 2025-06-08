@@ -77,16 +77,16 @@ export const initialData = {
     },
     {
       id: 5,
-      content: "shutup",
+      content: "Agreed!!!",
       createdAt: "1 week ago",
       score: 4,
       replyingTo: "ramsesmiron",
       parent: 3,
       user: {
         image: {
-          png: ramPng,
+          png: amyPng,
         },
-        username: "retard",
+        username: "amyrobson",
       },
       replies: [],
       type: "replies",

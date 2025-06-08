@@ -1,5 +1,3 @@
-import { attribute } from "./attribute";
-
 export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data);
