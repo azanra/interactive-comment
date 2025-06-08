@@ -1,3 +1,5 @@
+import { attribute } from "./attribute";
+
 export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data);
@@ -31,13 +33,22 @@ export const element = (function () {
 
   const referenceElement = (attribute, data) => {
     if (attribute.uniqueParent && data.type === "replies") {
-      return document.querySelector(
-        `${attribute.parentElement}-${data.parent}`
-      );
-    } else if (attribute.uniqueParent && data.id) {
+      return referenceReplyElement(attribute, data);
+    }
+    if (attribute.uniqueParent && data.id) {
       return document.querySelector(`${attribute.parentElement}-${data.id}`);
     } else {
       return document.querySelector(attribute.parentElement);
+    }
+  };
+
+  const referenceReplyElement = (attribute, data) => {
+    if (attribute.elementAttribute.class === "commentContent") {
+      return document.querySelector(
+        `${attribute.parentElement}-${data.parent}`
+      );
+    } else {
+      return document.querySelector(`${attribute.parentElement}-${data.id}`);
     }
   };
 
