@@ -7,6 +7,7 @@ export default function Replies(attribute) {
   this.id = attribute.id;
   this.content = attribute.content;
   this.createdAt = this.setCurrentDate();
+  this.createdSince = this.renderDate();
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
