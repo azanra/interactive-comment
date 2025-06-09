@@ -2,8 +2,8 @@ export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data);
     const newElement = document.createElement(attribute.newElement);
-    createImg(attribute, data.user.image.png);
-    populateUniqueText(attribute, data);
+    attribute = createImg(attribute, data.user.image.png);
+    attribute = populateUniqueText(attribute, data);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
     parentElement.append(newElement);
@@ -68,13 +68,21 @@ export const element = (function () {
 
   const createImg = (attribute, src) => {
     if (attribute.hasOwnProperty("isImage")) {
-      attribute.elementAttribute.src = src;
+      const attrWithSrc = JSON.parse(JSON.stringify(attribute));
+      attrWithSrc.elementAttribute.src = src;
+      return attrWithSrc;
+    } else {
+      return attribute;
     }
   };
 
   const populateUniqueText = (attribute, data) => {
     if (attribute.hasOwnProperty("dataText")) {
-      attribute.textContent = nestedTextContentValue(attribute, data);
+      const uniqueTextAttr = JSON.parse(JSON.stringify(attribute));
+      uniqueTextAttr.textContent = nestedTextContentValue(attribute, data);
+      return uniqueTextAttr;
+    } else {
+      return attribute;
     }
   };
 
