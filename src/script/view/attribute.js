@@ -148,6 +148,24 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    createdAtContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "createdAtContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    createdAt: {
+      parentElement: "#createdAtContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "createdAt",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
   svg: {
     incre: {
