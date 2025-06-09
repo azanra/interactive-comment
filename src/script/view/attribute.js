@@ -167,6 +167,35 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    replyTriggerSvgContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyTriggerSvgContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyTriggerContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyTriggerContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyTrigger: {
+      parentElement: "#replyTriggerContainer",
+      newElement: "button",
+      elementAttribute: {
+        type: "button",
+        class: "replyTrigger",
+      },
+      textContent: "Reply",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
   svg: {
     incre: {
@@ -217,6 +246,32 @@ export const attribute = {
           elementAttribute: {
             fill: "#C5C6EF",
             d: "M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z",
+          },
+        },
+      },
+    },
+    reply: {
+      parentElement: "#replyTriggerSvgContainer",
+      uniqueParent: true,
+      uniqueElement: false,
+      svg: {
+        uri: "http://www.w3.org/2000/svg",
+        name: "svg",
+        elementAttribute: {
+          width: "14",
+          height: "13",
+        },
+        xmlnsAttribute: {
+          nameSpace: "http://www.w3.org/2000/xmlns/",
+          name: "xmlns:xlink",
+          value: "http://www.w3.org/2000/svg",
+        },
+        path: {
+          uri: "http://www.w3.org/2000/svg",
+          name: "path",
+          elementAttribute: {
+            fill: "#5357B6",
+            d: "M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z",
           },
         },
       },
