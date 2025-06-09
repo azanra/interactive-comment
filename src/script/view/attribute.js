@@ -163,6 +163,7 @@ export const attribute = {
       elementAttribute: {
         class: "createdAt",
       },
+      dataText: "createdSince",
       uniqueParent: true,
       uniqueElement: true,
     },

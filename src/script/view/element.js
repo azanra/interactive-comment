@@ -4,7 +4,6 @@ export const element = (function () {
     const newElement = document.createElement(attribute.newElement);
     attribute = createImg(attribute, data.user.image.png);
     attribute = populateUniqueText(attribute, data);
-    attribute = appendRenderDate(attribute, data);
     setMultipleAttr(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
     parentElement.append(newElement);
@@ -93,16 +92,6 @@ export const element = (function () {
       return data[`${dataText[0]}`][`${dataText[1]}`];
     } else {
       return data[attribute.dataText];
-    }
-  };
-
-  const appendRenderDate = (attribute, data) => {
-    if (attribute.elementAttribute.class === "createdAt") {
-      const attrWithRenderDate = JSON.parse(JSON.stringify(attribute));
-      attrWithRenderDate.textContent = data.renderDate();
-      return attrWithRenderDate;
-    } else {
-      return attribute;
     }
   };
 
