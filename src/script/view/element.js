@@ -32,8 +32,7 @@ export const element = (function () {
   const referenceElement = (attribute, data) => {
     if (attribute.uniqueParent && data.type === "replies") {
       return referenceReplyElement(attribute, data);
-    }
-    if (attribute.uniqueParent && data.id) {
+    } else if (attribute.uniqueParent && data.id) {
       return document.querySelector(`${attribute.parentElement}-${data.id}`);
     } else {
       return document.querySelector(attribute.parentElement);
@@ -41,7 +40,7 @@ export const element = (function () {
   };
 
   const referenceReplyElement = (attribute, data) => {
-    if (attribute.elementAttribute.class === "commentContent") {
+    if (attribute?.elementAttribute?.class === "commentContent") {
       return document.querySelector(
         `${attribute.parentElement}-${data.parent}`
       );

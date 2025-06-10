@@ -27,6 +27,7 @@ export const card = (function () {
         attribute = changeRepliesParent(attribute);
         element.createDom(attribute, data);
       }
+      svgDom(data);
     }
   };
 
