@@ -196,6 +196,25 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    dataContentContainer: {
+      parentElement: "#contentContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "dataContentContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    dataContent: {
+      parentElement: "#dataContentContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "dataContent",
+      },
+      dataText: "content",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
   svg: {
     incre: {
