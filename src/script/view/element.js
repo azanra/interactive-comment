@@ -2,6 +2,7 @@ export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data);
     const newElement = document.createElement(attribute.newElement);
+    attribute = renderCreatedSince(attribute, data);
     attribute = createImg(attribute, data.user.image.png);
     attribute = populateUniqueText(attribute, data);
     setMultipleAttr(newElement, attribute.elementAttribute);
@@ -91,6 +92,16 @@ export const element = (function () {
       return data[`${dataText[0]}`][`${dataText[1]}`];
     } else {
       return data[attribute.dataText];
+    }
+  };
+
+  const renderCreatedSince = (attribute, data) => {
+    if (attribute.elementAttribute.class === "createdAt") {
+      const attrWithCreatedSince = JSON.parse(JSON.stringify(attribute));
+      attrWithCreatedSince.textContent = data.renderDate();
+      return attrWithCreatedSince;
+    } else {
+      return attribute;
     }
   };
 

@@ -6,8 +6,7 @@ export default function Comment(attribute) {
   }
   this.id = attribute.id;
   this.content = attribute.content;
-  this.createdAt = this.setCurrentDate();
-  this.createdSince = this.renderDate();
+  this.createdAt = attribute.createdAt || new Date();
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
@@ -21,11 +20,6 @@ Comment.prototype.addReplies = function (replies) {
 
 Comment.prototype.setUpvoted = function () {
   this.upvoted = !this.upvoted;
-};
-
-Comment.prototype.setCurrentDate = function () {
-  const currentDate = new Date();
-  return currentDate;
 };
 
 Comment.prototype.renderDate = function () {
