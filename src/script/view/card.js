@@ -13,7 +13,8 @@ export const card = (function () {
   const commentDom = (data) => {
     if (data.type === "comment") {
       for (const key in cardAttribute) {
-        const attribute = element.setUniqueId(cardAttribute[key], data.id);
+        let attribute = element.setUniqueId(cardAttribute[key], data.id);
+        attribute = element.appendReferenceParent(attribute);
         element.createDom(attribute, data);
       }
       svgDom(data);
@@ -25,6 +26,7 @@ export const card = (function () {
       for (const key in cardAttribute) {
         let attribute = element.setUniqueId(cardAttribute[key], data.id);
         attribute = changeRepliesParent(attribute);
+        attribute = element.appendReferenceParent(attribute);
         element.createDom(attribute, data);
       }
       svgDom(data);
@@ -36,6 +38,7 @@ export const card = (function () {
       const newParentAttribute = JSON.parse(JSON.stringify(attribute));
       newParentAttribute.parentElement = "#commentContent";
       newParentAttribute.uniqueParent = true;
+      newParentAttribute.withParentId = true;
       return newParentAttribute;
     } else {
       return attribute;
@@ -44,7 +47,9 @@ export const card = (function () {
 
   const svgDom = (data) => {
     for (const key in svgAttribute) {
-      element.createSvgDom(svgAttribute[key], data);
+      let attribute = JSON.parse(JSON.stringify(svgAttribute[key]));
+      attribute = element.appendReferenceParent(attribute);
+      element.createSvgDom(attribute, data);
     }
   };
 
@@ -54,5 +59,5 @@ export const card = (function () {
     }
   };
 
-  return { createDom, renderCard };
+  return { createDom, renderCard, replyInputDom };
 })();
