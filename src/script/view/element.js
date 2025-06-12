@@ -30,23 +30,26 @@ export const element = (function () {
     }
   };
 
-  const referenceElement = (attribute, data) => {
-    if (attribute.uniqueParent && data.type === "replies") {
-      return referenceReplyElement(attribute, data);
-    } else if (attribute.uniqueParent && data.id) {
-      return document.querySelector(`${attribute.parentElement}-${data.id}`);
+  const appendReferenceParent = (attribute) => {
+    if (attribute?.withParentId === true) {
+      attribute.referenceParent = "withParentId";
+    } else if (attribute.uniqueParent === true) {
+      attribute.referenceParent = "withDataId";
     } else {
-      return document.querySelector(attribute.parentElement);
+      attribute.referenceParent = "none";
     }
+    return attribute;
   };
 
-  const referenceReplyElement = (attribute, data) => {
-    if (attribute?.elementAttribute?.class === "commentContent") {
+  const referenceElement = (attribute, data) => {
+    if (attribute.referenceParent === "withParentId") {
       return document.querySelector(
         `${attribute.parentElement}-${data.parent}`
       );
-    } else {
+    } else if (attribute.referenceParent === "withDataId") {
       return document.querySelector(`${attribute.parentElement}-${data.id}`);
+    } else if (attribute.referenceParent === "none") {
+      return document.querySelector(attribute.parentElement);
     }
   };
 
@@ -111,5 +114,6 @@ export const element = (function () {
     setTextContent,
     setUniqueId,
     createSvgDom,
+    appendReferenceParent,
   };
 })();
