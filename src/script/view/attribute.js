@@ -244,6 +244,44 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    replyInputContainer: {
+      parentElement: "#replyContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyInputContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyInput: {
+      parentElement: "#replyInputContainer",
+      newElement: "textArea",
+      elementAttribute: {
+        class: "replyInput",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyBtnContainer: {
+      parentElement: "#replyContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyBtnContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyBtn: {
+      parentElement: "#replyBtnContainer",
+      newElement: "button",
+      elementAttribute: {
+        type: "button",
+        class: "replyBtn",
+      },
+      textContent: "Reply",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
   svg: {
     incre: {
