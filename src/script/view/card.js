@@ -4,6 +4,7 @@ import { element } from "./element.js";
 export const card = (function () {
   const cardAttribute = attribute.card;
   const svgAttribute = attribute.svg;
+  const replyAttribute = attribute.reply;
 
   const createDom = (data) => {
     commentDom(data);
@@ -56,6 +57,39 @@ export const card = (function () {
   const renderCard = (data) => {
     for (const key in data) {
       createDom(data[key]);
+    }
+  };
+
+  const replyInputDom = (activeUser, parentData) => {
+    for (const key in replyAttribute) {
+      let attribute = element.setUniqueId(replyAttribute[key], activeUser.id);
+      attribute = changeReplyInputParent(attribute);
+      attribute = element.appendReferenceParent(attribute);
+      parentData = appendParentToComment(attribute, parentData);
+      parentData.id = activeUser.id;
+      element.createDom(attribute, parentData);
+    }
+  };
+
+  const changeReplyInputParent = (attribute) => {
+    if (attribute.elementAttribute.class === "replyContainer") {
+      let newParentAttribute = JSON.parse(JSON.stringify(attribute));
+      newParentAttribute.withParentId = true;
+      //because the parent id is used to reference the parent
+      return newParentAttribute;
+    } else {
+      return attribute;
+    }
+  };
+
+  const appendParentToComment = (attribute, data) => {
+    if (attribute?.withParentId === true) {
+      let dataWithParent = JSON.parse(JSON.stringify(data));
+      dataWithParent.parent = data.id;
+      //it will have parent of the parent data and id of the active user
+      return dataWithParent;
+    } else {
+      return data;
     }
   };
 

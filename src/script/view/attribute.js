@@ -215,6 +215,36 @@ export const attribute = {
       uniqueElement: true,
     },
   },
+  reply: {
+    replyContainer: {
+      parentElement: "#commentContent",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    profileContainer: {
+      parentElement: "#replyContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "profileContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    profile: {
+      parentElement: "#profileContainer",
+      newElement: "img",
+      elementAttribute: {
+        class: "profile",
+      },
+      isImage: true,
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+  },
   svg: {
     incre: {
       parentElement: "#increBtn",

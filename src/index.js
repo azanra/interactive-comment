@@ -8,3 +8,5 @@ const data = localData.loadData();
 console.log("local storage", data);
 
 card.renderCard(data.list);
+
+card.replyInputDom(activeUser, data.list[[2]]);
