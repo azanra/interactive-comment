@@ -1,2 +1,6 @@
 body {
 }
+
+.commentContainer + .commentContent {
+  padding-left: 5%;
+}
