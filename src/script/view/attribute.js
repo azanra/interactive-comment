@@ -210,6 +210,24 @@ export const attribute = {
       elementAttribute: {
         class: "dataContent",
       },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    dataReplyingTo: {
+      parentElement: "#dataContent",
+      newElement: "span",
+      elementAttribute: {
+        class: "dataReplyingTo",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    dataTextContent: {
+      parentElement: "#dataContent",
+      newElement: "p",
+      elementAttribute: {
+        class: "dataTextContent",
+      },
       dataText: "content",
       uniqueParent: true,
       uniqueElement: true,

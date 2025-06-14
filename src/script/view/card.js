@@ -28,9 +28,20 @@ export const card = (function () {
         let attribute = element.setUniqueId(cardAttribute[key], data.id);
         attribute = changeRepliesParent(attribute);
         attribute = element.appendReferenceParent(attribute);
+        attribute = appendReplyingTo(attribute);
         element.createDom(attribute, data);
       }
       svgDom(data);
+    }
+  };
+
+  const appendReplyingTo = (attribute) => {
+    if (attribute.elementAttribute.class === "dataReplyingTo") {
+      const attributeWithReply = JSON.parse(JSON.stringify(attribute));
+      attributeWithReply.dataText = "replyingTo";
+      return attributeWithReply;
+    } else {
+      return attribute;
     }
   };
 
