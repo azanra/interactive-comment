@@ -89,6 +89,17 @@ export const element = (function () {
     }
   };
 
+  const renderAtToReplying = (data) => {
+    if (data.type === "replies") {
+      const replyingTo = document.querySelectorAll(".dataReplyingTo");
+      replyingTo.forEach((reply) => {
+        if (reply.textContent && !reply.textContent.includes("@")) {
+          reply.textContent = `@${reply.textContent}`;
+        }
+      });
+    }
+  };
+
   const nestedTextContentValue = (attribute, data) => {
     if (attribute.dataText.includes("-")) {
       const dataText = attribute.dataText.split("-");
@@ -115,5 +126,6 @@ export const element = (function () {
     setUniqueId,
     createSvgDom,
     appendReferenceParent,
+    renderAtToReplying,
   };
 })();

@@ -31,6 +31,7 @@ export const card = (function () {
         attribute = appendReplyingTo(attribute);
         element.createDom(attribute, data);
       }
+      element.renderAtToReplying(data);
       svgDom(data);
     }
   };
