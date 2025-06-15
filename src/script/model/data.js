@@ -43,6 +43,20 @@ export const initialData = {
       type: "comment",
     },
     {
+      id: 7,
+      content: "Nice one",
+      createdAt: "Wed Jun 15 2025 07:42:06 GMT+0700 (Western Indonesia Time)",
+      score: 3,
+      user: {
+        image: {
+          png: juliomoPng,
+        },
+        username: "juliusomo",
+      },
+      replies: [],
+      type: "comment",
+    },
+    {
       id: 4,
       content:
         "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",

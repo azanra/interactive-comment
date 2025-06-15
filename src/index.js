@@ -1,11 +1,6 @@
 import "./style.css";
-import { localData } from "./script/model/localStorage.js";
 import { card } from "./script/view/card.js";
-import { user } from "./script/model/user.js";
-
-const activeUser = user.activeUser;
-const data = localData.loadData();
-console.log("local storage", data);
+import { data } from "./script/mainData.js";
 
 card.renderCard(data.list);
 
