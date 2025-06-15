@@ -166,8 +166,17 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
-    replyTriggerSvgContainer: {
+    replyActionContainer: {
       parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "replyActionContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    replyTriggerSvgContainer: {
+      parentElement: "#replyActionContainer",
       newElement: "div",
       elementAttribute: {
         class: "replyTriggerSvgContainer",
@@ -176,7 +185,7 @@ export const attribute = {
       uniqueElement: true,
     },
     replyTriggerContainer: {
-      parentElement: "#userInfoContainer",
+      parentElement: "#replyActionContainer",
       newElement: "div",
       elementAttribute: {
         class: "replyTriggerContainer",
@@ -229,6 +238,45 @@ export const attribute = {
         class: "dataTextContent",
       },
       dataText: "content",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+  },
+  activeUser: {
+    usernameActiveUser: {
+      parentElement: "#userNameContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "usernameActiveUser",
+      },
+      uniqueParent: true,
+      uniqueElement: false,
+    },
+    deleteActionContainer: {
+      parentElement: "#userInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "deleteActionContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    deleteSvgContainer: {
+      parentElement: "#deleteActionContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "deleteSvgContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    deleteButton: {
+      parentElement: "#deleteActionContainer",
+      newElement: "button",
+      elementAttribute: {
+        type: "button",
+        class: "deleteBtn",
+      },
       uniqueParent: true,
       uniqueElement: true,
     },
