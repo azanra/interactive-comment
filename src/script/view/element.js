@@ -27,6 +27,8 @@ export const element = (function () {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
+    } else {
+      return attribute;
     }
   };
 
