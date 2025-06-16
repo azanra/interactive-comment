@@ -1,4 +1,6 @@
 import { activeUser, data } from "../mainData.js";
+import { attribute } from "./attribute.js";
+import { element } from "./element.js";
 
 export const renderAction = (function () {
   let listData = [];
@@ -10,7 +12,26 @@ export const renderAction = (function () {
         listData.push(localData[key]);
       }
     }
+    console.log(listData);
   };
 
-  return { getActiveUserListData };
+  const renderDom = (project) => {
+    const attr = attribute.activeUser.dom;
+    for (const key in attr) {
+      let uniqueAttr = element.setUniqueId(attr[key], project.id);
+      uniqueAttr = element.appendReferenceParent(uniqueAttr);
+      element.createDom(uniqueAttr, project);
+    }
+    renderSvgDom(project);
+  };
+
+  const renderSvgDom = (project) => {
+    const svg = attribute.activeUser.svg;
+    for (const key in svg) {
+      let attr = JSON.parse(JSON.stringify(svg[key]));
+      attr = element.appendReferenceParent(attr);
+      element.createSvgDom(attr, project);
+    }
+  };
+  return { getActiveUserListData, renderDom };
 })();

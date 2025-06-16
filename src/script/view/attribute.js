@@ -243,42 +243,74 @@ export const attribute = {
     },
   },
   activeUser: {
-    usernameActiveUser: {
-      parentElement: "#userNameContainer",
-      newElement: "p",
-      elementAttribute: {
-        class: "usernameActiveUser",
+    dom: {
+      usernameActiveUser: {
+        parentElement: "#userNameContainer",
+        newElement: "p",
+        elementAttribute: {
+          class: "usernameActiveUser",
+        },
+        textContent: "You",
+        uniqueParent: true,
+        uniqueElement: false,
       },
-      uniqueParent: true,
-      uniqueElement: false,
+      deleteActionContainer: {
+        parentElement: "#userInfoContainer",
+        newElement: "div",
+        elementAttribute: {
+          class: "deleteActionContainer",
+        },
+        uniqueParent: true,
+        uniqueElement: true,
+      },
+      deleteSvgContainer: {
+        parentElement: "#deleteActionContainer",
+        newElement: "div",
+        elementAttribute: {
+          class: "deleteSvgContainer",
+        },
+        uniqueParent: true,
+        uniqueElement: true,
+      },
+      deleteButton: {
+        parentElement: "#deleteActionContainer",
+        newElement: "button",
+        elementAttribute: {
+          type: "button",
+          class: "deleteBtn",
+        },
+        textContent: "Delete",
+        uniqueParent: true,
+        uniqueElement: true,
+      },
     },
-    deleteActionContainer: {
-      parentElement: "#userInfoContainer",
-      newElement: "div",
-      elementAttribute: {
-        class: "deleteActionContainer",
+    svg: {
+      edit: {
+        parentElement: "#deleteSvgContainer",
+        uniqueParent: true,
+        uniqueElement: false,
+        svg: {
+          uri: "http://www.w3.org/2000/svg",
+          name: "svg",
+          elementAttribute: {
+            width: "14",
+            height: "14",
+          },
+          xmlnsAttribute: {
+            nameSpace: "http://www.w3.org/2000/xmlns/",
+            name: "xmlns:xlink",
+            value: "http://www.w3.org/2000/svg",
+          },
+          path: {
+            uri: "http://www.w3.org/2000/svg",
+            name: "path",
+            elementAttribute: {
+              fill: "#5357B6",
+              d: "M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z",
+            },
+          },
+        },
       },
-      uniqueParent: true,
-      uniqueElement: true,
-    },
-    deleteSvgContainer: {
-      parentElement: "#deleteActionContainer",
-      newElement: "div",
-      elementAttribute: {
-        class: "deleteSvgContainer",
-      },
-      uniqueParent: true,
-      uniqueElement: true,
-    },
-    deleteButton: {
-      parentElement: "#deleteActionContainer",
-      newElement: "button",
-      elementAttribute: {
-        type: "button",
-        class: "deleteBtn",
-      },
-      uniqueParent: true,
-      uniqueElement: true,
     },
   },
   reply: {
