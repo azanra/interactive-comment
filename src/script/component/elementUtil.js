@@ -53,7 +53,7 @@ export const elementUtil = (function () {
   };
 
   const createSvgDom = (attribute) => {
-    const { uri, name, elementAttribute, xmlnsAttribute, path } = attribute.svg;
+    const { uri, name, elementAttribute, xmlnsAttribute, path } = attribute;
     const svgElement = document.createElementNS(uri, name);
     setMultipleAttr(svgElement, elementAttribute);
     svgElement.setAttributeNS(
