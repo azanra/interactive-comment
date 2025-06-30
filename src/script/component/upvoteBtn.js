@@ -62,10 +62,11 @@ export const decreBtnAttr = {
   },
 };
 
-const upvoteBtn = (btnAttr) => {
+const upvoteBtn = (btnAttr, id) => {
   const { button, svg } = btnAttr;
   const renderBtn = () => {
-    const btnElement = elementUtil.createDom(button);
+    const btnAttribute = elementUtil.setUniqueId(button, id);
+    const btnElement = elementUtil.createDom(btnAttribute);
     btnElement.appendChild(renderIncrementSvg());
     return btnElement;
   };

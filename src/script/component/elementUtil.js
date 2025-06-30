@@ -20,7 +20,7 @@ export const elementUtil = (function () {
   };
 
   const setUniqueId = (attribute, id) => {
-    if (attribute.uniqueElement === true) {
+    if (id) {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
