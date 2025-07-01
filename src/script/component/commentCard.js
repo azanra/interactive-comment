@@ -8,10 +8,10 @@ export const commentAttr = {
   },
 };
 
-const commentCard = (commentAttr, id) => {
+const commentCard = (commentAttr, data) => {
   const renderComment = () => {
     const comment = elementUtil.createDom(commentAttr);
-    comment.appendChild(upvote(upvoteAttr, id));
+    comment.appendChild(upvote(upvoteAttr, data));
     return comment;
   };
 
