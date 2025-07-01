@@ -64,6 +64,7 @@ export const decreBtnAttr = {
 
 const upvoteBtn = (btnAttr, id) => {
   const { button, svg } = btnAttr;
+
   const renderBtn = () => {
     const btnAttribute = elementUtil.setUniqueId(button, id);
     const btnElement = elementUtil.createDom(btnAttribute);

@@ -18,6 +18,7 @@ export const upvoteAttr = {
 
 const upvote = (upvoteAttr, id) => {
   const { amount, container } = upvoteAttr;
+
   const renderAmount = () => {
     const amountAttribute = elementUtil.setUniqueId(amount, id);
     const amountElement = elementUtil.createDom(amountAttribute);
@@ -26,9 +27,9 @@ const upvote = (upvoteAttr, id) => {
 
   const renderContainer = () => {
     const containerElement = elementUtil.createDom(container);
-    containerElement.appendChild(upvoteBtn(increBtnAttr, 1));
+    containerElement.appendChild(upvoteBtn(increBtnAttr, id));
     containerElement.appendChild(renderAmount());
-    containerElement.appendChild(upvoteBtn(decreBtnAttr, 1));
+    containerElement.appendChild(upvoteBtn(decreBtnAttr, id));
     return containerElement;
   };
 
