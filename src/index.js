@@ -14,29 +14,40 @@ const section = document.querySelector(".section");
 const comments = initialData.comments;
 
 const renderData = (function () {
-  const checkData = (dataToCheck) => {
+  const render = (dataToBeRendered) => {
+    const dataToBeRenderedArray = Object.values(dataToBeRendered);
+    dataToBeRenderedArray.forEach((data) => {
+      if (data.type === "comment") {
+        checkData(data, dataToBeRendered);
+      }
+    });
+  };
+
+  const checkData = (dataToCheck, dataToBeRendered) => {
     const replies = dataToCheck.replies;
     const parentComment = commentCard(commentAttr, dataToCheck);
-    replies.map((id) => {
-      checkNestedData(id, parentComment);
-    });
+    if (replies.length > 0) {
+      replies.map((id) => {
+        checkNestedData(id, parentComment, dataToBeRendered);
+      });
+    }
     section.appendChild(parentComment);
   };
 
-  const checkNestedData = (id, parent) => {
-    const data = comments[id];
+  const checkNestedData = (id, parent, dataToBeRendered) => {
+    const data = dataToBeRendered[id];
     const replies = data.replies;
     const repliesComment = commentCard(commentAttr, data);
     parent.appendChild(repliesComment);
 
     if (replies.length > 0) {
       replies.map((id) => {
-        checkNestedData(id, repliesComment);
+        checkNestedData(id, repliesComment, dataToBeRendered);
       });
     }
   };
 
-  return { checkData };
+  return { render };
 })();
 
-renderData.checkData(comments[2]);
+renderData.render(comments);
