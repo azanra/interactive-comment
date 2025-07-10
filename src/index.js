@@ -11,7 +11,32 @@ import { initialData } from "./script/model/data.js";
 
 const section = document.querySelector(".section");
 
-const initialDatas = initialData.comments;
-initialDatas.forEach((data) => {
-  section.appendChild(commentCard(commentAttr, data));
-});
+const comments = initialData.comments;
+
+const renderData = (function () {
+  const checkData = (dataToCheck) => {
+    const replies = dataToCheck.replies;
+    const parentComment = commentCard(commentAttr, dataToCheck);
+    replies.map((id) => {
+      checkNestedData(id, parentComment);
+    });
+    section.appendChild(parentComment);
+  };
+
+  const checkNestedData = (id, parent) => {
+    const data = comments[id];
+    const replies = data.replies;
+    const repliesComment = commentCard(commentAttr, data);
+    parent.appendChild(repliesComment);
+
+    if (replies.length > 0) {
+      replies.map((id) => {
+        checkNestedData(id, repliesComment);
+      });
+    }
+  };
+
+  return { checkData };
+})();
+
+renderData.checkData(comments[2]);
