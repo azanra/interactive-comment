@@ -23,6 +23,7 @@ const upvote = (upvoteAttr, data) => {
   const renderAmount = () => {
     const amountAttribute = elementUtil.setUniqueId(amount, id);
     const amountElement = elementUtil.createDom(amountAttribute);
+    elementUtil.setTextContent(amountElement, score);
     return amountElement;
   };
 

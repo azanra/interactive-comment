@@ -43,7 +43,7 @@ export const elementUtil = (function () {
   const referenceElement = (attribute, data) => {
     if (attribute.referenceParent === "withParentId") {
       return document.querySelector(
-        `${attribute.parentElement}-${data.parent}`
+        `${attribute.parentElement}-${data.parent}`,
       );
     } else if (attribute.referenceParent === "withDataId") {
       return document.querySelector(`${attribute.parentElement}-${data.id}`);
@@ -59,7 +59,7 @@ export const elementUtil = (function () {
     svgElement.setAttributeNS(
       xmlnsAttribute.nameSpace,
       xmlnsAttribute.name,
-      xmlnsAttribute.value
+      xmlnsAttribute.value,
     );
     const pathElement = document.createElementNS(path.uri, path.name);
     setMultipleAttr(pathElement, path.elementAttribute);
@@ -119,11 +119,8 @@ export const elementUtil = (function () {
 
   return {
     createDom,
-    setMultipleAttr,
-    setTextContent,
     setUniqueId,
     createSvgDom,
-    appendReferenceParent,
-    renderAtToReplying,
+    setTextContent,
   };
 })();

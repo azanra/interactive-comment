@@ -8,11 +8,24 @@ export const commentAttr = {
   },
 };
 
+const commentContentAttr = {
+  elementType: "div",
+  elementAttribute: {
+    class: "commentContent",
+  },
+};
+
 const commentCard = (commentAttr, data) => {
   const renderComment = () => {
     const comment = elementUtil.createDom(commentAttr);
-    comment.appendChild(upvote(upvoteAttr, data));
+    comment.appendChild(renderCommentContent());
     return comment;
+  };
+
+  const renderCommentContent = () => {
+    const commentContent = elementUtil.createDom(commentContentAttr);
+    commentContent.appendChild(upvote(upvoteAttr, data));
+    return commentContent;
   };
 
   return renderComment();
