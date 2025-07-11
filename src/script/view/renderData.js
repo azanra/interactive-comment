@@ -1,4 +1,4 @@
-import commentCard, { commentAttr } from "./component/commentCard";
+import commentCard, { commentAttr } from "../component/commentCard";
 
 const renderData = (function () {
   const section = document.querySelector(".section");
