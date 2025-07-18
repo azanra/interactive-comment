@@ -1,3 +1,4 @@
+import { initialData } from "../model/data";
 import { elementUtil } from "./elementUtil";
 
 const commentHeaderAttr = {
@@ -21,6 +22,14 @@ const profileNameAttr = {
   },
 };
 
+const ownCommentMarkAttr = {
+  elementType: "p",
+  elementAttribute: {
+    class: "ownCommentMark",
+  },
+  textContent: "You",
+};
+
 const commentHeader = (data) => {
   const renderProfileImg = () => {
     const img = elementUtil.createDom(imgAttr);
@@ -34,10 +43,20 @@ const commentHeader = (data) => {
     return profileName;
   };
 
+  const renderOwnCommentMark = () => {
+    const currentUser = JSON.parse(JSON.stringify(initialData.currentUser));
+    if (currentUser.username === data.user.username) {
+      const ownCommentMark = elementUtil.createDom(ownCommentMarkAttr);
+      return ownCommentMark;
+    }
+    return document.createElement("span");
+  };
+
   const renderCommentHeader = () => {
     const commentHeader = elementUtil.createDom(commentHeaderAttr);
     commentHeader.appendChild(renderProfileImg());
     commentHeader.appendChild(renderProfileName());
+    commentHeader.appendChild(renderOwnCommentMark());
     return commentHeader;
   };
 
