@@ -16,7 +16,7 @@ export const upvoteAttr = {
   },
 };
 
-const upvote = (upvoteAttr, data) => {
+const upvote = (data) => {
   const { amount, container } = upvoteAttr;
   const { id, score } = data;
 

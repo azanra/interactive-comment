@@ -1,4 +1,4 @@
-import commentCard, { commentAttr } from "../component/commentCard";
+import commentCard from "../component/commentCard";
 
 const renderData = (function () {
   const section = document.querySelector(".section");
@@ -14,7 +14,7 @@ const renderData = (function () {
 
   const checkData = (dataToCheck, dataToBeRendered) => {
     const replies = dataToCheck.replies;
-    const parentComment = commentCard(commentAttr, dataToCheck);
+    const parentComment = commentCard(dataToCheck);
     if (replies.length > 0) {
       replies.map((id) => {
         checkNestedData(id, parentComment, dataToBeRendered);
@@ -26,7 +26,7 @@ const renderData = (function () {
   const checkNestedData = (id, parent, dataToBeRendered) => {
     const data = dataToBeRendered[id];
     const replies = data.replies;
-    const repliesComment = commentCard(commentAttr, data);
+    const repliesComment = commentCard(data);
     parent.appendChild(repliesComment);
 
     if (replies.length > 0) {

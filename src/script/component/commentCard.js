@@ -1,7 +1,8 @@
+import commentHeader from "./commentHeader";
 import { elementUtil } from "./elementUtil";
-import upvote, { upvoteAttr } from "./upvote";
+import upvote from "./upvote";
 
-export const commentAttr = {
+const commentAttr = {
   elementType: "div",
   elementAttribute: {
     class: "comment",
@@ -22,13 +23,6 @@ const commentContainerAttr = {
   },
 };
 
-const commentHeaderAttr = {
-  elementType: "div",
-  elementAttribute: {
-    class: "commentHeader",
-  },
-};
-
 const commentBodyAttr = {
   elementType: "div",
   elementAttribute: {
@@ -36,7 +30,7 @@ const commentBodyAttr = {
   },
 };
 
-const commentCard = (commentAttr, data) => {
+const commentCard = (data) => {
   const renderComment = () => {
     const comment = elementUtil.createDom(commentAttr);
     comment.appendChild(renderCommentContent());
@@ -45,21 +39,16 @@ const commentCard = (commentAttr, data) => {
 
   const renderCommentContent = () => {
     const commentContent = elementUtil.createDom(commentContentAttr);
-    commentContent.appendChild(upvote(upvoteAttr, data));
+    commentContent.appendChild(upvote(data));
     commentContent.appendChild(renderCommentContainer());
     return commentContent;
   };
 
   const renderCommentContainer = () => {
     const commentContainer = elementUtil.createDom(commentContainerAttr);
-    commentContainer.appendChild(renderCommentHeader());
+    commentContainer.appendChild(commentHeader(data));
     commentContainer.appendChild(renderCommentBody());
     return commentContainer;
-  };
-
-  const renderCommentHeader = () => {
-    const commentHeader = elementUtil.createDom(commentHeaderAttr);
-    return commentHeader;
   };
 
   const renderCommentBody = () => {
