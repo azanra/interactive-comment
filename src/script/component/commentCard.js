@@ -1,3 +1,4 @@
+import commentBody from "./commentBody";
 import commentHeader from "./commentHeader";
 import { elementUtil } from "./elementUtil";
 import upvote from "./upvote";
@@ -23,13 +24,6 @@ const commentContainerAttr = {
   },
 };
 
-const commentBodyAttr = {
-  elementType: "div",
-  elementAttribute: {
-    class: "commentBody",
-  },
-};
-
 const commentCard = (data) => {
   const renderComment = () => {
     const comment = elementUtil.createDom(commentAttr);
@@ -47,13 +41,8 @@ const commentCard = (data) => {
   const renderCommentContainer = () => {
     const commentContainer = elementUtil.createDom(commentContainerAttr);
     commentContainer.appendChild(commentHeader(data));
-    commentContainer.appendChild(renderCommentBody());
+    commentContainer.appendChild(commentBody(data));
     return commentContainer;
-  };
-
-  const renderCommentBody = () => {
-    const commentBody = elementUtil.createDom(commentBodyAttr);
-    return commentBody;
   };
 
   return renderComment();
