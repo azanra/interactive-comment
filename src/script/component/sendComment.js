@@ -1,3 +1,4 @@
+import button from "./button";
 import { elementUtil } from "./elementUtil";
 
 const profileImgAttr = {
@@ -21,6 +22,7 @@ const sendComment = (function () {
   const render = (data) => {
     sendComment.appendChild(renderProfileImg(data));
     sendComment.appendChild(renderCommentInput());
+    sendComment.appendChild(button("sent"));
   };
 
   const renderProfileImg = (data) => {
