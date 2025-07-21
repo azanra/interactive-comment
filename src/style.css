@@ -1,3 +1,23 @@
 .commentContent ~ .comment {
-  padding-left: 5%;
+  padding-left: 15%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 50%;
+}
+
+.commentContent,
+.commentHeader,
+.actionCommentContainer {
+  display: flex;
+  align-items: center;
+}
+
+.commentContent {
+  margin-bottom: 15px;
 }

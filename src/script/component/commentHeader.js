@@ -41,14 +41,14 @@ const commentDateAttr = {
 const actionCommentContainerAttr = {
   elementType: "div",
   elementAttribute: {
-    class: "actionCommentContainerAttr",
+    class: "actionCommentContainer",
   },
 };
 
 const deleteActionContainerAttr = {
   elementType: "div",
   elementAttribute: {
-    class: "deleteActionContainerAttr",
+    class: "deleteActionContainer",
   },
 };
 
