@@ -5,7 +5,8 @@
 body,
 .commentContent,
 .commentHeader,
-.actionCommentContainer {
+.actionCommentContainer,
+.sendComment {
   display: flex;
 }
 
@@ -31,7 +32,9 @@ body {
   gap: 25px;
 }
 
-.commentHeader {
+.commentHeader,
+.sendComment,
+.actionCommentContainer {
   gap: 15px;
 }
 
@@ -42,4 +45,17 @@ body {
 .actionCommentContainer {
   flex: 1;
   justify-content: end;
+}
+
+.sendComment {
+  margin-top: 25px;
+  align-items: start;
+}
+
+.commentInput {
+  flex: 1;
+}
+
+.amountText {
+  text-align: center;
 }
