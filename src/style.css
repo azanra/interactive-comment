@@ -2,8 +2,14 @@
   padding-left: 15%;
 }
 
-body {
+body,
+.commentContent,
+.commentHeader,
+.actionCommentContainer {
   display: flex;
+}
+
+body {
   justify-content: center;
 }
 
@@ -14,10 +20,26 @@ body {
 .commentContent,
 .commentHeader,
 .actionCommentContainer {
-  display: flex;
   align-items: center;
 }
 
 .commentContent {
   margin-bottom: 15px;
+}
+
+.commentContent {
+  gap: 25px;
+}
+
+.commentHeader {
+  gap: 15px;
+}
+
+.profileImg {
+  width: 35px;
+}
+
+.actionCommentContainer {
+  flex: 1;
+  justify-content: end;
 }
