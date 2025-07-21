@@ -13,6 +13,7 @@ const commentInputAttr = {
   elementAttribute: {
     class: "commentInput",
     name: "comment",
+    placeholder: "Add a comment...",
   },
 };
 

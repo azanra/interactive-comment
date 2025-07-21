@@ -14,13 +14,6 @@ const commentContentContainerAttr = {
   },
 };
 
-const replyingToAttr = {
-  elementType: "span",
-  elementAttribute: {
-    class: "replyingTo",
-  },
-};
-
 const commentContentAttr = {
   elementType: "p",
   elementAttribute: {
