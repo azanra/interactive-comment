@@ -39,13 +39,8 @@ const commentBody = (data) => {
     const commentContentContainer = elementUtil.createDom(
       commentContentContainerAttr,
     );
-    if (data.type === "replies") {
-      const replyingTo = elementUtil.createDom(replyingToAttr);
-      replyingTo.textContent = `${data.replyingTo}`;
-      commentContentContainer.appendChild(replyingTo);
-    }
     const commentContent = elementUtil.createDom(commentContentAttr);
-    commentContent.textContent = data.content;
+    commentContent.textContent = ` ${data.type === "replies" ? `@${data.replyingTo}` : ""} ${data.content}`;
     commentContentContainer.appendChild(commentContent);
     return commentContentContainer;
   };
