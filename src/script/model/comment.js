@@ -6,7 +6,7 @@ export default function Comment(attribute) {
   }
   this.id = attribute.id;
   this.content = attribute.content;
-  this.createdAt = attribute.createdAt || new Date();
+  this.createdAt = attribute.createdAt;
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
