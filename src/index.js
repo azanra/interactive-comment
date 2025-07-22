@@ -1,9 +1,7 @@
 import "./style.css";
-import { initialData } from "./script/model/data.js";
 import renderData from "./script/view/renderData.js";
 import sendComment from "./script/component/sendComment";
+import dataContext from "./script/dataContext";
 
-const comments = initialData.comments;
-const currentUser = initialData.currentUser;
-renderData.render(comments);
-sendComment.render(currentUser);
+renderData.render(dataContext.comment.list);
+sendComment.render();
