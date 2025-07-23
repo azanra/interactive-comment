@@ -7,11 +7,12 @@ const buttonAttr = {
   },
 };
 
-const button = (text) => {
+const button = (text, onClick) => {
   const renderButton = () => {
     const btnAttr = elementUtil.setUniqueId(buttonAttr, text);
     const button = elementUtil.createDom(btnAttr);
     button.textContent = text.toUpperCase();
+    button.addEventListener("click", onClick);
     return button;
   };
 

@@ -1,3 +1,6 @@
+import dataContext from "../dataContext";
+import Comment from "../model/comment";
+import util from "../util/util";
 import button from "./button";
 import { elementUtil } from "./elementUtil";
 
@@ -20,10 +23,10 @@ const commentInputAttr = {
 const sendComment = (function () {
   const sendComment = document.querySelector(".sendComment");
 
-  const render = (data) => {
-    sendComment.appendChild(renderProfileImg(data));
+  const render = () => {
+    sendComment.appendChild(renderProfileImg(dataContext.currentUser));
     sendComment.appendChild(renderCommentInput());
-    sendComment.appendChild(button("sent"));
+    sendComment.appendChild(button("sent", onClickSent));
   };
 
   const renderProfileImg = (data) => {
@@ -35,6 +38,24 @@ const sendComment = (function () {
   const renderCommentInput = () => {
     const commentInput = elementUtil.createDom(commentInputAttr);
     return commentInput;
+  };
+
+  const onClickSent = () => {
+    const commentContent = document.querySelector(".commentInput");
+    dataContext.lastId.incrementLastId();
+    const attribute = {
+      id: dataContext.lastId.getLastId(),
+      content: commentContent.value,
+      createdAt: new Date(),
+      score: 1,
+      user: dataContext.currentUser,
+      replies: [],
+    };
+    const commentItem = new Comment(attribute);
+    dataContext.comment.addData(commentItem);
+    util.updateCommentView();
+    commentContent.value = "";
+    console.log(dataContext.comment);
   };
 
   return { render };
