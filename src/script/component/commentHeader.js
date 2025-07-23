@@ -213,7 +213,11 @@ const commentHeader = (data) => {
       deleteActionContainerAttr,
     );
     const deleteSvg = elementUtil.createSvgDom(deleteSvgAttr);
-    const deleteActionBtn = elementUtil.createDom(deleteActionBtnAttr);
+    const deleteActionBtnAttrWithId = elementUtil.setUniqueId(
+      deleteActionBtnAttr,
+      data.id,
+    );
+    const deleteActionBtn = elementUtil.createDom(deleteActionBtnAttrWithId);
     deleteActionContainer.appendChild(deleteSvg);
     deleteActionContainer.appendChild(deleteActionBtn);
     return deleteActionContainer;
@@ -222,9 +226,13 @@ const commentHeader = (data) => {
   const renderEditAction = () => {
     const editActionContainer = elementUtil.createDom(editActionContainerAttr);
     const deleteSvg = elementUtil.createSvgDom(editSvgAttr);
-    const deleteActionBtn = elementUtil.createDom(editActionBtnAttr);
+    const editActionBtnAttrWithId = elementUtil.setUniqueId(
+      editActionBtnAttr,
+      data.id,
+    );
+    const editActionBtn = elementUtil.createDom(editActionBtnAttrWithId);
     editActionContainer.appendChild(deleteSvg);
-    editActionContainer.appendChild(deleteActionBtn);
+    editActionContainer.appendChild(editActionBtn);
     return editActionContainer;
   };
 
@@ -233,7 +241,11 @@ const commentHeader = (data) => {
       replyActionContainerAttr,
     );
     const replySvg = elementUtil.createSvgDom(replySvgAttr);
-    const replyActionBtn = elementUtil.createDom(replyActionBtnAttr);
+    const replyActionBtnAttrWithId = elementUtil.setUniqueId(
+      replyActionBtnAttr,
+      data.id,
+    );
+    const replyActionBtn = elementUtil.createDom(replyActionBtnAttrWithId);
     replyActionContainer.appendChild(replySvg);
     replyActionContainer.appendChild(replyActionBtn);
     return replyActionContainer;
