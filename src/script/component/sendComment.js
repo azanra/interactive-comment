@@ -1,5 +1,6 @@
 import dataContext from "../dataContext";
 import Comment from "../model/comment";
+import { localData } from "../model/localStorage";
 import util from "../util/util";
 import button from "./button";
 import { elementUtil } from "./elementUtil";
@@ -55,7 +56,8 @@ const sendComment = (function () {
     dataContext.comment.addData(commentItem);
     util.updateCommentView();
     commentContent.value = "";
-    console.log(dataContext.comment);
+    localData.storeData(dataContext.comment);
+    console.log(dataContext);
   };
 
   return { render };
