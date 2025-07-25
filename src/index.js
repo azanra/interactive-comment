@@ -5,3 +5,4 @@ import dataContext from "./script/dataContext";
 
 renderData.render(dataContext.comment.list);
 sendComment.render();
+console.log(dataContext);

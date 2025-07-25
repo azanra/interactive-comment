@@ -18,10 +18,10 @@ export const upvoteAttr = {
 
 const upvote = (data) => {
   const { amount, container } = upvoteAttr;
-  const { id, score } = data;
+  const { score } = data;
 
   const renderAmount = () => {
-    const amountAttribute = elementUtil.setUniqueId(amount, id);
+    const amountAttribute = elementUtil.setUniqueId(amount, data);
     const amountElement = elementUtil.createDom(amountAttribute);
     elementUtil.setTextContent(amountElement, score);
     return amountElement;

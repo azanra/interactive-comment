@@ -21,13 +21,22 @@ const commentInputAttr = {
   },
 };
 
+const sentBtnAttr = {
+  elementType: "button",
+  elementAttribute: {
+    type: "button",
+    class: "sentBtn",
+  },
+  textContent: "SENT",
+};
+
 const sendComment = (function () {
   const sendComment = document.querySelector(".sendComment");
 
   const render = () => {
     sendComment.appendChild(renderProfileImg(dataContext.currentUser));
     sendComment.appendChild(renderCommentInput());
-    sendComment.appendChild(button("sent", onClickSent));
+    sendComment.appendChild(button(null, sentBtnAttr, onClickSent));
   };
 
   const renderProfileImg = (data) => {

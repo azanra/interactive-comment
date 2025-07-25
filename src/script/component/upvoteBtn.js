@@ -1,7 +1,8 @@
+import button from "./button";
 import { elementUtil } from "./elementUtil";
 
 export const increBtnAttr = {
-  button: {
+  btn: {
     elementType: "button",
     elementAttribute: {
       type: "button",
@@ -32,7 +33,7 @@ export const increBtnAttr = {
 };
 
 export const decreBtnAttr = {
-  button: {
+  btn: {
     elementType: "button",
     elementAttribute: {
       type: "button",
@@ -63,14 +64,11 @@ export const decreBtnAttr = {
 };
 
 const upvoteBtn = (btnAttr, data) => {
-  const { button, svg } = btnAttr;
-  const { id } = data;
+  const { btn, svg } = btnAttr;
 
   const renderBtn = () => {
-    const btnAttribute = elementUtil.setUniqueId(button, id);
-    const btnElement = elementUtil.createDom(btnAttribute);
-    btnElement.appendChild(renderIncrementSvg());
-    return btnElement;
+    const buttonElement = button(data, btn, null, renderIncrementSvg());
+    return buttonElement;
   };
 
   const renderIncrementSvg = () => {

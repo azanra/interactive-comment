@@ -1,18 +1,12 @@
 import { elementUtil } from "./elementUtil";
 
-const buttonAttr = {
-  elementType: "button",
-  elementAttribute: {
-    class: "button",
-  },
-};
-
-const button = (text, onClick) => {
+const button = (data = null, attribute, onClick = null, children = null) => {
   const renderButton = () => {
-    const btnAttr = elementUtil.setUniqueId(buttonAttr, text);
+    const btnAttr = elementUtil.setUniqueId(attribute, data);
     const button = elementUtil.createDom(btnAttr);
-    button.textContent = text.toUpperCase();
-    button.addEventListener("click", onClick);
+    onClick && button.addEventListener("click", onClick);
+    children && button.appendChild(children);
+
     return button;
   };
 

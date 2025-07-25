@@ -34,10 +34,10 @@ export const elementUtil = (function () {
     return svgElement;
   };
 
-  const setUniqueId = (attribute, id) => {
-    if (id) {
+  const setUniqueId = (attribute, data) => {
+    if (data) {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
-      copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
+      copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${data.id}`;
       return copyAttribute;
     } else {
       return attribute;

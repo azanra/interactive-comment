@@ -1,6 +1,7 @@
 import { formatDistanceToNowStrict } from "date-fns";
 import { initialData } from "../model/data";
 import { elementUtil } from "./elementUtil";
+import button from "./button";
 
 const commentHeaderAttr = {
   elementType: "div",
@@ -213,11 +214,7 @@ const commentHeader = (data) => {
       deleteActionContainerAttr,
     );
     const deleteSvg = elementUtil.createSvgDom(deleteSvgAttr);
-    const deleteActionBtnAttrWithId = elementUtil.setUniqueId(
-      deleteActionBtnAttr,
-      data.id,
-    );
-    const deleteActionBtn = elementUtil.createDom(deleteActionBtnAttrWithId);
+    const deleteActionBtn = button(data, deleteActionBtnAttr);
     deleteActionContainer.appendChild(deleteSvg);
     deleteActionContainer.appendChild(deleteActionBtn);
     return deleteActionContainer;
@@ -226,11 +223,7 @@ const commentHeader = (data) => {
   const renderEditAction = () => {
     const editActionContainer = elementUtil.createDom(editActionContainerAttr);
     const deleteSvg = elementUtil.createSvgDom(editSvgAttr);
-    const editActionBtnAttrWithId = elementUtil.setUniqueId(
-      editActionBtnAttr,
-      data.id,
-    );
-    const editActionBtn = elementUtil.createDom(editActionBtnAttrWithId);
+    const editActionBtn = button(data, editActionBtnAttr);
     editActionContainer.appendChild(deleteSvg);
     editActionContainer.appendChild(editActionBtn);
     return editActionContainer;
@@ -241,11 +234,7 @@ const commentHeader = (data) => {
       replyActionContainerAttr,
     );
     const replySvg = elementUtil.createSvgDom(replySvgAttr);
-    const replyActionBtnAttrWithId = elementUtil.setUniqueId(
-      replyActionBtnAttr,
-      data.id,
-    );
-    const replyActionBtn = elementUtil.createDom(replyActionBtnAttrWithId);
+    const replyActionBtn = button(data, replyActionBtnAttr);
     replyActionContainer.appendChild(replySvg);
     replyActionContainer.appendChild(replyActionBtn);
     return replyActionContainer;
