@@ -10,7 +10,7 @@ export default function Replies(attribute) {
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
-  this.upvoted = null;
+  this.upvoted = false;
   this.type = "replies";
   this.replyingTo = attribute.replyingTo;
   this.parent = attribute.parent;

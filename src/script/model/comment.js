@@ -10,7 +10,7 @@ export default function Comment(attribute) {
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
-  this.upvoted = null;
+  this.upvoted = false;
   this.type = "comment";
 }
 
