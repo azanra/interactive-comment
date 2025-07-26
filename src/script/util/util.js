@@ -8,7 +8,15 @@ const util = (function () {
     renderData.render(dataContext.comment.list);
   };
 
-  return { updateCommentView };
+  const getDataId = (e) => {
+    const elementId = e.target.id;
+    const classAndDataId = elementId.split("-");
+    return {
+      id: classAndDataId[1],
+    };
+  };
+
+  return { updateCommentView, getDataId };
 })();
 
 export default util;

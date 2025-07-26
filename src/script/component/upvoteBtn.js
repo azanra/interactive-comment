@@ -63,11 +63,11 @@ export const decreBtnAttr = {
   },
 };
 
-const upvoteBtn = (btnAttr, data) => {
+const upvoteBtn = (btnAttr, data, onClick) => {
   const { btn, svg } = btnAttr;
 
   const renderBtn = () => {
-    const buttonElement = button(data, btn, null, renderIncrementSvg());
+    const buttonElement = button(data, btn, onClick, renderIncrementSvg());
     return buttonElement;
   };
 

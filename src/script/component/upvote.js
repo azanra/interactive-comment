@@ -1,3 +1,5 @@
+import dataContext from "../dataContext";
+import util from "../util/util";
 import { elementUtil } from "./elementUtil";
 import upvoteBtn, { decreBtnAttr, increBtnAttr } from "./upvoteBtn";
 
@@ -18,7 +20,15 @@ export const upvoteAttr = {
 
 const upvote = (data) => {
   const { amount, container } = upvoteAttr;
-  const { score } = data;
+  const { score, isUpvoted } = data;
+
+  const handeUpvote = (e) => {
+    if (!isUpvoted) {
+      const { id } = util.getDataId(e);
+      dataContext.comment.setUpvote(Number(id));
+      console.log(dataContext);
+    }
+  };
 
   const renderAmount = () => {
     const amountAttribute = elementUtil.setUniqueId(amount, data);
@@ -29,7 +39,7 @@ const upvote = (data) => {
 
   const renderContainer = () => {
     const containerElement = elementUtil.createDom(container);
-    containerElement.appendChild(upvoteBtn(increBtnAttr, data));
+    containerElement.appendChild(upvoteBtn(increBtnAttr, data, handeUpvote));
     containerElement.appendChild(renderAmount());
     containerElement.appendChild(upvoteBtn(decreBtnAttr, data));
     return containerElement;

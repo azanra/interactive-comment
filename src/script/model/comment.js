@@ -10,7 +10,7 @@ export default function Comment(attribute) {
   this.score = attribute.score;
   this.user = attribute.user;
   this.replies = attribute.replies;
-  this.upvoted = false;
+  this.isUpvoted = false;
   this.type = "comment";
 }
 
@@ -19,7 +19,7 @@ Comment.prototype.addReplies = function (replies) {
 };
 
 Comment.prototype.setUpvoted = function () {
-  this.upvoted = !this.upvoted;
+  this.isUpvoted = !this.isUpvoted;
 };
 
 Comment.prototype.renderDate = function () {
@@ -29,9 +29,9 @@ Comment.prototype.renderDate = function () {
 };
 
 Comment.prototype.renderScore = function () {
-  if (this.upvoted === true) {
+  if (this.isUpvoted === true) {
     this.score === this.score++;
-  } else if (this.upvoted === false) {
+  } else if (this.isUpvoted === false) {
     this.score === this.score--;
   }
 };
