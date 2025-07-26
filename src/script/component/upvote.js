@@ -24,10 +24,22 @@ const upvote = (data) => {
 
   const handeUpvote = (e) => {
     if (!isUpvoted) {
-      const { id } = util.getDataId(e);
-      dataContext.comment.setUpvote(Number(id));
-      console.log(dataContext);
+      upvoteEvent(e);
     }
+  };
+
+  const upvoteEvent = (e) => {
+    const { id } = util.getDataId(e);
+    dataContext.comment.setUpvote(id);
+    dataContext.comment.setScore(id);
+    updateAmountText(id);
+    console.log(dataContext);
+  };
+
+  const updateAmountText = (id) => {
+    const data = dataContext.comment.returnComment(id);
+    const amountText = document.querySelector(`#amountText-${id}`);
+    amountText.textContent = data.score;
   };
 
   const renderAmount = () => {
