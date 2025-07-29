@@ -20,18 +20,20 @@ export const upvoteAttr = {
 
 const upvote = (data) => {
   const { amount, container } = upvoteAttr;
-  const { score, isUpvoted } = data;
+  const { score } = data;
 
-  const handeUpvote = (e) => {
-    if (!isUpvoted) {
-      upvoteEvent(e);
-    }
-  };
-
-  const upvoteEvent = (e) => {
+  const handleUpvote = (e) => {
     const { id } = util.getDataId(e);
     dataContext.comment.setUpvote(id);
-    dataContext.comment.setScore(id);
+    dataContext.comment.setUpvoteScore(id);
+    updateAmountText(id);
+    console.log(dataContext);
+  };
+
+  const handleDownvote = (e) => {
+    const { id } = util.getDataId(e);
+    dataContext.comment.setDownvote(id);
+    dataContext.comment.setDownvoteScore(id);
     updateAmountText(id);
     console.log(dataContext);
   };
@@ -51,9 +53,9 @@ const upvote = (data) => {
 
   const renderContainer = () => {
     const containerElement = elementUtil.createDom(container);
-    containerElement.appendChild(upvoteBtn(increBtnAttr, data, handeUpvote));
+    containerElement.appendChild(upvoteBtn(increBtnAttr, data, handleUpvote));
     containerElement.appendChild(renderAmount());
-    containerElement.appendChild(upvoteBtn(decreBtnAttr, data));
+    containerElement.appendChild(upvoteBtn(decreBtnAttr, data, handleDownvote));
     return containerElement;
   };
 

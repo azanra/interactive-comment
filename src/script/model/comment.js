@@ -11,6 +11,8 @@ export default function Comment(attribute) {
   this.user = attribute.user;
   this.replies = attribute.replies;
   this.isUpvoted = false;
+  this.isDownvoted = false;
+  this.renderedScore = this.score;
   this.type = "comment";
 }
 
@@ -20,6 +22,12 @@ Comment.prototype.addReplies = function (replies) {
 
 Comment.prototype.setUpvoted = function () {
   this.isUpvoted = !this.isUpvoted;
+  if (this.isDownvoted === true) this.isDownvoted = false;
+};
+
+Comment.prototype.setDownvoted = function () {
+  this.isDownvoted = !this.isDownvoted;
+  if (this.isUpvoted === true) this.isUpvoted = false;
 };
 
 Comment.prototype.renderDate = function () {
@@ -28,11 +36,19 @@ Comment.prototype.renderDate = function () {
   return dateDifference;
 };
 
-Comment.prototype.renderScore = function () {
+Comment.prototype.renderUpvoteScore = function () {
   if (this.isUpvoted === true) {
-    this.score === this.score++;
+    this.score = this.renderedScore + 1;
   } else if (this.isUpvoted === false) {
-    this.score === this.score--;
+    this.score = this.renderedScore;
+  }
+};
+
+Comment.prototype.renderDownvoteScore = function () {
+  if (this.isDownvoted === true) {
+    this.score = this.renderedScore - 1;
+  } else if (this.isDownvoted === false) {
+    this.score = this.renderedScore;
   }
 };
 

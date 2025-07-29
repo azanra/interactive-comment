@@ -55,6 +55,14 @@ List.prototype.setUpvote = function (id) {
   }
 };
 
+List.prototype.setDownvote = function (id) {
+  for (const key in this.list) {
+    if (Number(key) === Number(id)) {
+      this.list[key].setDownvoted();
+    }
+  }
+};
+
 List.prototype.returnDate = function (id) {
   let dateDifference;
   for (const key in this.list) {
@@ -65,10 +73,18 @@ List.prototype.returnDate = function (id) {
   return dateDifference;
 };
 
-List.prototype.setScore = function (id) {
+List.prototype.setUpvoteScore = function (id) {
   for (const key in this.list) {
     if (Number(key) === Number(id)) {
-      this.list[key].renderScore();
+      this.list[key].renderUpvoteScore();
+    }
+  }
+};
+
+List.prototype.setDownvoteScore = function (id) {
+  for (const key in this.list) {
+    if (Number(key) === Number(id)) {
+      this.list[key].renderDownvoteScore();
     }
   }
 };
