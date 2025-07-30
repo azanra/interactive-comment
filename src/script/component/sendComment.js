@@ -36,7 +36,7 @@ const sendComment = (function () {
   const render = () => {
     sendComment.appendChild(renderProfileImg(dataContext.currentUser));
     sendComment.appendChild(renderCommentInput());
-    sendComment.appendChild(button(null, sentBtnAttr, onClickSent));
+    sendComment.appendChild(button(null, sentBtnAttr, handleSent));
   };
 
   const renderProfileImg = (data) => {
@@ -50,7 +50,7 @@ const sendComment = (function () {
     return commentInput;
   };
 
-  const onClickSent = () => {
+  const handleSent = () => {
     const commentContent = document.querySelector(".commentInput");
     dataContext.lastId.incrementLastId();
     const attribute = {
