@@ -2,6 +2,8 @@ import { formatDistanceToNowStrict } from "date-fns";
 import { initialData } from "../model/data";
 import { elementUtil } from "./elementUtil";
 import button from "./button";
+import util from "../util/util";
+import replyComment from "./replyComment";
 
 const commentHeaderAttr = {
   elementType: "div",
@@ -168,6 +170,12 @@ const commentHeader = (data) => {
     }
   };
 
+  const handleReplyAction = (e) => {
+    const { id } = util.getDataId(e);
+    const comment = document.querySelector(`#comment-${id}`);
+    comment.appendChild(replyComment(data));
+  };
+
   const renderProfileImg = () => {
     const img = elementUtil.createDom(imgAttr);
     img.src = data.user.image.png;
@@ -235,6 +243,7 @@ const commentHeader = (data) => {
     );
     const replySvg = elementUtil.createSvgDom(replySvgAttr);
     const replyActionBtn = button(data, replyActionBtnAttr);
+    replyActionBtn.addEventListener("click", handleReplyAction);
     replyActionContainer.appendChild(replySvg);
     replyActionContainer.appendChild(replyActionBtn);
     return replyActionContainer;

@@ -6,7 +6,8 @@ body,
 .commentContent,
 .commentHeader,
 .actionCommentContainer,
-.sendComment {
+.sendComment,
+.replyComment {
   display: flex;
 }
 
@@ -24,7 +25,8 @@ body {
   align-items: center;
 }
 
-.commentContent {
+.commentContent,
+.replyComment {
   margin-bottom: 15px;
 }
 
@@ -34,7 +36,8 @@ body {
 
 .commentHeader,
 .sendComment,
-.actionCommentContainer {
+.actionCommentContainer,
+.replyComment {
   gap: 15px;
 }
 
@@ -47,12 +50,17 @@ body {
   justify-content: end;
 }
 
-.sendComment {
-  margin-top: 25px;
+.sendComment,
+.replyComment {
   align-items: start;
 }
 
-.commentInput {
+.sendComment {
+  margin-top: 25px;
+}
+
+.commentInput,
+.replyInput {
   flex: 1;
 }
 

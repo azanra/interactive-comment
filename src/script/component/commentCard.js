@@ -26,7 +26,8 @@ const commentContainerAttr = {
 
 const commentCard = (data) => {
   const renderComment = () => {
-    const comment = elementUtil.createDom(commentAttr);
+    const commentAttrWithId = elementUtil.setUniqueId(commentAttr, data);
+    const comment = elementUtil.createDom(commentAttrWithId);
     comment.appendChild(renderCommentContent());
     return comment;
   };

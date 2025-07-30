@@ -36,7 +36,11 @@ const replyBtnAttr = {
 
 const replyComment = (data) => {
   const render = () => {
-    const replyComment = elementUtil.createDom(replyCommentAttr);
+    const replyCommentAttrWithId = elementUtil.setUniqueId(
+      replyCommentAttr,
+      data,
+    );
+    const replyComment = elementUtil.createDom(replyCommentAttrWithId);
     replyComment.appendChild(renderProfileImg());
     replyComment.appendChild(renderReplyInput());
     replyComment.appendChild(button(data, replyBtnAttr, null));
