@@ -64,8 +64,8 @@ const sendComment = (function () {
     const commentItem = new Comment(attribute);
     dataContext.comment.addData(commentItem);
     util.updateCommentView();
-    commentContent.value = "";
     localData.storeData(dataContext.comment);
+    commentContent.value = "";
     console.log(dataContext);
   };
 
