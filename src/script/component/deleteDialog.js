@@ -50,6 +50,11 @@ const deleteAcceptActionAttr = {
 };
 
 const deleteDialog = (function () {
+  const handleCancel = () => {
+    const deleteDialog = document.querySelector(".deleteDialog");
+    deleteDialog.close();
+  };
+
   const render = () => {
     const deleteDialog = elementUtil.createDom(deleteDialogAttr);
     deleteDialog.appendChild(renderDeleteHeader());
@@ -77,6 +82,7 @@ const deleteDialog = (function () {
 
   const renderCancelAction = () => {
     const cancelActionBtn = elementUtil.createDom(deleteCancelActionAttr);
+    cancelActionBtn.addEventListener("click", handleCancel);
     return cancelActionBtn;
   };
 

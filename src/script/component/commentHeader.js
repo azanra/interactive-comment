@@ -176,6 +176,17 @@ const commentHeader = (data) => {
     comment.appendChild(replyComment(data));
   };
 
+  const handleDeleteAction = (e) => {
+    const { id } = util.getDataId(e);
+    const deleteAcceptActionDialogBtn = document.querySelector(
+      ".deleteAcceptAction",
+    );
+    deleteAcceptActionDialogBtn.id = `${deleteAcceptActionDialogBtn.className}-${id}`;
+
+    const deleteDialog = document.querySelector(".deleteDialog");
+    deleteDialog.showModal();
+  };
+
   const renderProfileImg = () => {
     const img = elementUtil.createDom(imgAttr);
     img.src = data.user.image.png;
@@ -223,6 +234,7 @@ const commentHeader = (data) => {
     );
     const deleteSvg = elementUtil.createSvgDom(deleteSvgAttr);
     const deleteActionBtn = button(data, deleteActionBtnAttr);
+    deleteActionBtn.addEventListener("click", handleDeleteAction);
     deleteActionContainer.appendChild(deleteSvg);
     deleteActionContainer.appendChild(deleteActionBtn);
     return deleteActionContainer;
