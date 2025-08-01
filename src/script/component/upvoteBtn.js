@@ -21,6 +21,7 @@ export const decreBtnAttr = {
 const upvoteBtn = (btnAttr, data, onClick) => {
   const renderBtn = () => {
     const buttonElement = button(data, btnAttr, onClick);
+    buttonElement.disabled = data.isDeleted;
     return buttonElement;
   };
 

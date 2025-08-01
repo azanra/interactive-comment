@@ -33,7 +33,10 @@ const commentBody = (data) => {
       commentContentContainerAttr,
     );
     const commentContent = elementUtil.createDom(commentContentAttr);
-    commentContent.textContent = ` ${data.type === "replies" ? `@${data.replyingTo}` : ""} ${data.content}`;
+    const commentText = ` ${data.type === "replies" ? `@${data.replyingTo}` : ""} ${data.content}`;
+    commentContent.textContent = data.isDeleted
+      ? "Comment deleted by user"
+      : commentText;
     commentContentContainer.appendChild(commentContent);
     return commentContentContainer;
   };

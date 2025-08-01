@@ -1,3 +1,6 @@
+import dataContext from "../dataContext";
+import { localData } from "../model/localStorage";
+import util from "../util/util";
 import { elementUtil } from "./elementUtil";
 
 const deleteDialogAttr = {
@@ -55,6 +58,15 @@ const deleteDialog = (function () {
     deleteDialog.close();
   };
 
+  const handleAccept = (e) => {
+    const { id } = util.getDataId(e);
+    dataContext.comment.deleteData(id);
+    handleCancel();
+    util.updateCommentView();
+    localData.storeData(dataContext.comment);
+    console.log(dataContext);
+  };
+
   const render = () => {
     const deleteDialog = elementUtil.createDom(deleteDialogAttr);
     deleteDialog.appendChild(renderDeleteHeader());
@@ -88,6 +100,7 @@ const deleteDialog = (function () {
 
   const renderAcceptAction = () => {
     const acceptActionBtn = elementUtil.createDom(deleteAcceptActionAttr);
+    acceptActionBtn.addEventListener("click", handleAccept);
     return acceptActionBtn;
   };
 

@@ -13,7 +13,7 @@ export default function Comment(attribute) {
   this.isUpvoted = false;
   this.isDownvoted = false;
   this.renderedScore = this.score;
-  this.isDeleted = false;
+  this.isDeleted = attribute.isDeleted;
   this.type = "comment";
 }
 

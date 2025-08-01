@@ -25,6 +25,7 @@ export const initialData = {
       },
       replies: [],
       type: "comment",
+      isDeleted: false,
     },
     2: {
       id: 2,
@@ -40,6 +41,7 @@ export const initialData = {
       },
       replies: [4, 5],
       type: "comment",
+      isDeleted: false,
     },
     3: {
       id: 3,
@@ -54,6 +56,7 @@ export const initialData = {
       },
       replies: [],
       type: "comment",
+      isDeleted: false,
     },
     4: {
       id: 4,
@@ -71,6 +74,7 @@ export const initialData = {
       },
       replies: [6],
       type: "replies",
+      isDeleted: false,
     },
     5: {
       id: 5,
@@ -88,6 +92,7 @@ export const initialData = {
       },
       replies: [],
       type: "replies",
+      isDeleted: false,
     },
     6: {
       id: 6,
@@ -104,6 +109,7 @@ export const initialData = {
       },
       replies: [],
       type: "replies",
+      isDeleted: false,
     },
   },
 };

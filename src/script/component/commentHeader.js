@@ -4,6 +4,7 @@ import { elementUtil } from "./elementUtil";
 import button from "./button";
 import util from "../util/util";
 import replyComment from "./replyComment";
+import deletedPng from "../../asset/deleted.png";
 
 const commentHeaderAttr = {
   elementType: "div",
@@ -189,13 +190,13 @@ const commentHeader = (data) => {
 
   const renderProfileImg = () => {
     const img = elementUtil.createDom(imgAttr);
-    img.src = data.user.image.png;
+    img.src = data.isDeleted ? deletedPng : data.user.image.png;
     return img;
   };
 
   const renderProfileName = () => {
     const profileName = elementUtil.createDom(profileNameAttr);
-    profileName.textContent = data.user.username;
+    profileName.textContent = data.isDeleted ? "[deleted]" : data.user.username;
     return profileName;
   };
 
@@ -235,6 +236,7 @@ const commentHeader = (data) => {
     const deleteSvg = elementUtil.createSvgDom(deleteSvgAttr);
     const deleteActionBtn = button(data, deleteActionBtnAttr);
     deleteActionBtn.addEventListener("click", handleDeleteAction);
+    deleteActionBtn.disabled = data.isDeleted;
     deleteActionContainer.appendChild(deleteSvg);
     deleteActionContainer.appendChild(deleteActionBtn);
     return deleteActionContainer;
@@ -244,6 +246,7 @@ const commentHeader = (data) => {
     const editActionContainer = elementUtil.createDom(editActionContainerAttr);
     const deleteSvg = elementUtil.createSvgDom(editSvgAttr);
     const editActionBtn = button(data, editActionBtnAttr);
+    editActionBtn.disabled = data.isDeleted;
     editActionContainer.appendChild(deleteSvg);
     editActionContainer.appendChild(editActionBtn);
     return editActionContainer;
@@ -256,6 +259,7 @@ const commentHeader = (data) => {
     const replySvg = elementUtil.createSvgDom(replySvgAttr);
     const replyActionBtn = button(data, replyActionBtnAttr);
     replyActionBtn.addEventListener("click", handleReplyAction);
+    replyActionBtn.disabled = data.isDeleted;
     replyActionContainer.appendChild(replySvg);
     replyActionContainer.appendChild(replyActionBtn);
     return replyActionContainer;
