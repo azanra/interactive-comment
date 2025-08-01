@@ -13,8 +13,13 @@ export default function Comment(attribute) {
   this.isUpvoted = false;
   this.isDownvoted = false;
   this.renderedScore = this.score;
+  this.isDeleted = false;
   this.type = "comment";
 }
+
+Comment.prototype.setIsDeleted = function () {
+  this.isDeleted = true;
+};
 
 Comment.prototype.addReplies = function (replies) {
   this.replies.push(replies.id);

@@ -13,6 +13,7 @@ export default function Replies(attribute) {
   this.isUpvoted = false;
   this.isDownvoted = false;
   this.renderedScore = this.score;
+  this.isDeleted = false;
   this.type = "replies";
   this.replyingTo = attribute.replyingTo;
   this.parent = attribute.parent;
