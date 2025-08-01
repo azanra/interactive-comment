@@ -47,7 +47,7 @@ const upvote = (data) => {
   const renderAmount = () => {
     const amountAttribute = elementUtil.setUniqueId(amount, data);
     const amountElement = elementUtil.createDom(amountAttribute);
-    elementUtil.setTextContent(amountElement, score);
+    amountElement.textContent = data.isDeleted ? " " : score;
     return amountElement;
   };
 
