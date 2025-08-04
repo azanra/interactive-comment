@@ -163,7 +163,7 @@ const replyActionBtnAttr = {
   textContent: "Reply",
 };
 
-const commentHeader = (data) => {
+const commentHeader = (data, setIsEditing) => {
   const IfDataIsActiveUser = () => {
     const currentUser = JSON.parse(JSON.stringify(initialData.currentUser));
     if (currentUser.username === data.user.username) {
@@ -246,6 +246,7 @@ const commentHeader = (data) => {
     const editActionContainer = elementUtil.createDom(editActionContainerAttr);
     const deleteSvg = elementUtil.createSvgDom(editSvgAttr);
     const editActionBtn = button(data, editActionBtnAttr);
+    editActionBtn.addEventListener("click", setIsEditing);
     editActionBtn.disabled = data.isDeleted;
     editActionContainer.appendChild(deleteSvg);
     editActionContainer.appendChild(editActionBtn);

@@ -23,7 +23,8 @@ const commentContentAttr = {
 
 const commentBody = (data) => {
   const renderCommentBody = () => {
-    const commentBody = elementUtil.createDom(commentBodyAttr);
+    const commentBodyWithId = elementUtil.setUniqueId(commentBodyAttr, data);
+    const commentBody = elementUtil.createDom(commentBodyWithId);
     commentBody.appendChild(renderCommentContent());
     return commentBody;
   };

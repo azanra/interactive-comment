@@ -1,4 +1,5 @@
 import commentBody from "./commentBody";
+import commentEdit from "./commentEdit";
 import commentHeader from "./commentHeader";
 import { elementUtil } from "./elementUtil";
 import upvote from "./upvote";
@@ -25,6 +26,26 @@ const commentContainerAttr = {
 };
 
 const commentCard = (data) => {
+  const state = {
+    isEditing: false,
+  };
+
+  const setIsEditing = () => {
+    state.isEditing = !state.isEditing;
+    updateRender();
+  };
+
+  const updateRender = () => {
+    if (state.isEditing) {
+      const commentBody = document.querySelector(`#commentBody-${data.id}`);
+      if (commentBody) commentBody.remove();
+      const commentContainer = document.querySelector(
+        `#commentContainer-${data.id}`,
+      );
+      commentContainer.appendChild(commentEdit(data));
+    }
+  };
+
   const renderComment = () => {
     const commentAttrWithId = elementUtil.setUniqueId(commentAttr, data);
     const comment = elementUtil.createDom(commentAttrWithId);
@@ -40,8 +61,12 @@ const commentCard = (data) => {
   };
 
   const renderCommentContainer = () => {
-    const commentContainer = elementUtil.createDom(commentContainerAttr);
-    commentContainer.appendChild(commentHeader(data));
+    const commentContainerWithId = elementUtil.setUniqueId(
+      commentContainerAttr,
+      data,
+    );
+    const commentContainer = elementUtil.createDom(commentContainerWithId);
+    commentContainer.appendChild(commentHeader(data, setIsEditing));
     commentContainer.appendChild(commentBody(data));
     return commentContainer;
   };
