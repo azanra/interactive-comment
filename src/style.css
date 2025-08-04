@@ -7,8 +7,13 @@ body,
 .commentHeader,
 .actionCommentContainer,
 .sendComment,
-.replyComment {
+.replyComment,
+.commentEdit {
   display: flex;
+}
+
+.commentEdit {
+  margin: 16px 0px;
 }
 
 body {
@@ -37,7 +42,8 @@ body {
 .commentHeader,
 .sendComment,
 .actionCommentContainer,
-.replyComment {
+.replyComment,
+.commentEdit {
   gap: 15px;
 }
 
@@ -51,7 +57,8 @@ body {
 }
 
 .sendComment,
-.replyComment {
+.replyComment,
+.commentEdit {
   align-items: start;
 }
 
@@ -60,7 +67,8 @@ body {
 }
 
 .commentInput,
-.replyInput {
+.replyInput,
+.editCommentInput {
   flex: 1;
 }
 

@@ -1,10 +1,13 @@
+import dataContext from "../dataContext";
+import { localData } from "../model/localStorage";
+import util from "../util/util";
 import button from "./button";
 import { elementUtil } from "./elementUtil";
 
 const commentEditAttr = {
   elementType: "div",
   elementAttribute: {
-    class: "commentEdiot",
+    class: "commentEdit",
   },
 };
 
@@ -21,19 +24,33 @@ const replyBtnAttr = {
     type: "button",
     class: "replyBtnAttr",
   },
-  textContent: "REPLY",
+  textContent: "UPDATE",
 };
 
 const commentEdit = (data) => {
+  const handleEdit = (e) => {
+    const { id } = util.getDataId(e);
+    const editInput = document.querySelector(`#editCommentInput-${id}`);
+    const input = editInput.value;
+    dataContext.comment.updateAttribute(id, "content", input);
+    localData.storeData(dataContext.comment);
+    util.updateCommentView();
+    console.log(dataContext);
+  };
+
   const render = () => {
     const commentEdit = elementUtil.createDom(commentEditAttr);
     commentEdit.appendChild(renderEditInput());
-    commentEdit.appendChild(button(data, replyBtnAttr, null));
+    commentEdit.appendChild(button(data, replyBtnAttr, handleEdit));
     return commentEdit;
   };
 
   const renderEditInput = () => {
-    const editCommentInput = elementUtil.createDom(editCommentInputAttr);
+    const editCommentInputWithId = elementUtil.setUniqueId(
+      editCommentInputAttr,
+      data,
+    );
+    const editCommentInput = elementUtil.createDom(editCommentInputWithId);
     editCommentInput.textContent = data.content;
     return editCommentInput;
   };
