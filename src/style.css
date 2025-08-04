@@ -1,3 +1,32 @@
+@font-face {
+  font-family: "Rubik";
+  src:
+    url("../src/asset/font/Rubik-Regular.woff2") format("woff2"),
+    url("../src/asset/font/Rubik-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --system-ui:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --Purple-600: hsl(238, 40%, 52%);
+  --Pink-400: hsl(358, 79%, 66%);
+  --Purple-200: hsl(239, 57%, 85%);
+  --Pink-200: hsl(357, 100%, 86%);
+  --Grey-800: hsl(212, 24%, 26%);
+  --Grey-500: hsl(211, 10%, 45%);
+  --Grey-100: hsl(223, 19%, 93%);
+  --Grey-50: hsl(228, 33%, 97%);
+  --White: hsl(0, 100%, 100%);
+}
+
+body {
+  font-family: "Rubik", var(--system-ui);
+  font-size: 16px;
+}
+
 .commentContent ~ .comment {
   padding-left: 15%;
 }
