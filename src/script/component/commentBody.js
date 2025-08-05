@@ -17,7 +17,7 @@ const commentContentContainerAttr = {
 const commentContentAttr = {
   elementType: "p",
   elementAttribute: {
-    class: "commentContent",
+    class: "commentContentPara",
   },
 };
 

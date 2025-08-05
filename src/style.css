@@ -25,6 +25,39 @@
 body {
   font-family: "Rubik", var(--system-ui);
   font-size: 16px;
+  background-color: var(--Grey-50);
+}
+
+.commentContent,
+.sendComment,
+.replyComment {
+  background-color: var(--White);
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+
+.amountContainer {
+  background-color: var(--Grey-100);
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+
+.increBtn,
+.decreBtn {
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--Grey-100);
+  color: var(--Purple-600);
+  font-size: 20px;
+}
+
+.decreBtn {
+  margin-left: 2px;
+}
+
+.amountText {
+  color: var(--Purple-600);
+  font-weight: bold;
 }
 
 .commentContent ~ .comment {
