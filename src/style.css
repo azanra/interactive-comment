@@ -70,7 +70,10 @@ body,
 .actionCommentContainer,
 .sendComment,
 .replyComment,
-.commentEdit {
+.commentEdit,
+.replyActionContainer,
+.deleteActionContainer,
+.editActionContainer {
   display: flex;
 }
 
@@ -88,7 +91,10 @@ body {
 
 .commentContent,
 .commentHeader,
-.actionCommentContainer {
+.actionCommentContainer,
+.replyActionContainer,
+.deleteActionContainer,
+.editActionContainer {
   align-items: center;
 }
 
@@ -107,6 +113,30 @@ body {
 .replyComment,
 .commentEdit {
   gap: 15px;
+}
+
+.replyActionContainer,
+.deleteActionContainer,
+.editActionContainer {
+  gap: 10px;
+}
+
+.replyActionBtn,
+.deleteActionBtn,
+.editActionBtn {
+  border: none;
+  background-color: var(--White);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.replyActionBtn,
+.editActionBtn {
+  color: var(--Purple-600);
+}
+
+.deleteActionBtn {
+  color: var(--Pink-400);
 }
 
 .profileImg {

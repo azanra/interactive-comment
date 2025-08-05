@@ -90,7 +90,7 @@ const deleteSvgAttr = {
 const editActionContainerAttr = {
   elementType: "div",
   elementAttribute: {
-    class: "editActionContianer",
+    class: "editActionContainer",
   },
 };
 
