@@ -50,9 +50,9 @@ const commentBody = (data) => {
     const commentContent = elementUtil.createDom(commentContentParaAttr);
     const repliesText = elementUtil.createDom(repliesTextAttr);
     const commentContentText = elementUtil.createDom(commentContentTextAttr);
-    repliesText.textContent = `${data.type === "replies" ? `@${data.replyingTo}` : ""}`;
+    repliesText.textContent = `${data.type === "replies" && !data.isDeleted ? `@${data.replyingTo}` : ""}`;
     commentContentText.textContent = data.isDeleted
-      ? "Comment deleted by user"
+      ? " Comment deleted by user"
       : ` ${data.content}`;
     commentContent.appendChild(repliesText);
     commentContent.appendChild(commentContentText);
