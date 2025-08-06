@@ -167,3 +167,18 @@ body {
 .amountText {
   text-align: center;
 }
+
+.profileName {
+  font-weight: bold;
+  color: var(--Grey-800);
+}
+
+.commentDate,
+.commentContentPara {
+  color: var(--Grey-500);
+}
+
+.repliesText {
+  color: var(--Purple-600);
+  font-weight: bold;
+}

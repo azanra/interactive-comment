@@ -14,10 +14,24 @@ const commentContentContainerAttr = {
   },
 };
 
-const commentContentAttr = {
+const commentContentParaAttr = {
   elementType: "p",
   elementAttribute: {
     class: "commentContentPara",
+  },
+};
+
+const repliesTextAttr = {
+  elementType: "span",
+  elementAttribute: {
+    class: "repliesText",
+  },
+};
+
+const commentContentTextAttr = {
+  elementType: "span",
+  elementAttribute: {
+    class: "commentContentText",
   },
 };
 
@@ -33,11 +47,15 @@ const commentBody = (data) => {
     const commentContentContainer = elementUtil.createDom(
       commentContentContainerAttr,
     );
-    const commentContent = elementUtil.createDom(commentContentAttr);
-    const commentText = ` ${data.type === "replies" ? `@${data.replyingTo}` : ""} ${data.content}`;
-    commentContent.textContent = data.isDeleted
+    const commentContent = elementUtil.createDom(commentContentParaAttr);
+    const repliesText = elementUtil.createDom(repliesTextAttr);
+    const commentContentText = elementUtil.createDom(commentContentTextAttr);
+    repliesText.textContent = `${data.type === "replies" ? `@${data.replyingTo}` : ""}`;
+    commentContentText.textContent = data.isDeleted
       ? "Comment deleted by user"
-      : commentText;
+      : ` ${data.content}`;
+    commentContent.appendChild(repliesText);
+    commentContent.appendChild(commentContentText);
     commentContentContainer.appendChild(commentContent);
     return commentContentContainer;
   };
