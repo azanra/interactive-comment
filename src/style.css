@@ -33,7 +33,7 @@ body {
 .replyComment {
   background-color: var(--White);
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 15px 30px;
 }
 
 .amountContainer {
@@ -70,16 +70,21 @@ body,
 .actionCommentContainer,
 .sendComment,
 .replyComment,
-.commentEdit,
 .replyActionContainer,
 .deleteActionContainer,
 .editActionContainer,
 .deleteActionDialog,
 .deleteCancelAction,
 .deleteAcceptAction,
-.replyBtnAttr,
-.sentBtn {
+.replyBtn,
+.sentBtn,
+.replyBtnContainer,
+.editCommentContainer {
   display: flex;
+}
+
+.editCommentContainer {
+  margin-bottom: 15px;
 }
 
 .commentEdit {
@@ -89,7 +94,7 @@ body,
 body,
 .deleteCancelAction,
 .deleteAcceptAction,
-.replyBtnAttr,
+.replyBtn,
 .sentBtn {
   justify-content: center;
 }
@@ -107,9 +112,13 @@ body,
 .deleteActionDialog,
 .deleteCancelAction,
 .deleteAcceptAction,
-.replyBtnAttr,
+.replyBtn,
 .sentBtn {
   align-items: center;
+}
+
+.replyBtnContainer {
+  justify-content: flex-end;
 }
 
 .commentContent,
@@ -225,23 +234,27 @@ dialog::backdrop {
 
 .deleteCancelAction,
 .deleteAcceptAction,
-.replyBtnAttr,
-.sentBtn {
+.replyBtnAtt,
+.sentBtn,
+.replyBtn,
+.updateBtn {
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 5px;
 }
 
-.replyBtnAttr,
-.sentBtn {
+.replyBtn,
+.sentBtn,
+.updateBtn {
   background-color: var(--Purple-600);
 }
 
 .deleteCancelAction,
 .deleteAcceptAction,
-.replyBtnAttr,
-.sentBtn {
+.replyBtn,
+.sentBtn,
+.updateBtn {
   height: 40px;
   padding: 0px 25px;
   font-size: 15px;
@@ -260,7 +273,8 @@ dialog::backdrop {
 }
 
 .editCommentInput,
-.commentInput {
+.commentInput,
+.replyInput {
   padding: 15px;
   height: 75px;
   border-radius: 5px;

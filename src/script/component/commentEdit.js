@@ -11,6 +11,13 @@ const commentEditAttr = {
   },
 };
 
+const editCommentContainerAttr = {
+  elementType: "div",
+  elementAttribute: {
+    class: "editCommentContainer",
+  },
+};
+
 const editCommentInputAttr = {
   elementType: "textarea",
   elementAttribute: {
@@ -18,11 +25,18 @@ const editCommentInputAttr = {
   },
 };
 
-const replyBtnAttr = {
+const replyBtnContainerAttr = {
+  elementType: "div",
+  elementAttribute: {
+    class: "replyBtnContainer",
+  },
+};
+
+const updateBtnAttr = {
   elementType: "button",
   elementAttribute: {
     type: "button",
-    class: "replyBtnAttr",
+    class: "updateBtn",
   },
   textContent: "UPDATE",
 };
@@ -41,18 +55,28 @@ const commentEdit = (data) => {
   const render = () => {
     const commentEdit = elementUtil.createDom(commentEditAttr);
     commentEdit.appendChild(renderEditInput());
-    commentEdit.appendChild(button(data, replyBtnAttr, handleEdit));
+    commentEdit.appendChild(renderEditBtn());
     return commentEdit;
   };
 
+  const renderEditBtn = () => {
+    const replyBtnContainer = elementUtil.createDom(replyBtnContainerAttr);
+    replyBtnContainer.appendChild(button(data, updateBtnAttr, handleEdit));
+    return replyBtnContainer;
+  };
+
   const renderEditInput = () => {
+    const editCommentContainer = elementUtil.createDom(
+      editCommentContainerAttr,
+    );
     const editCommentInputWithId = elementUtil.setUniqueId(
       editCommentInputAttr,
       data,
     );
     const editCommentInput = elementUtil.createDom(editCommentInputWithId);
     editCommentInput.textContent = data.content;
-    return editCommentInput;
+    editCommentContainer.appendChild(editCommentInput);
+    return editCommentContainer;
   };
 
   return render();
