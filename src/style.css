@@ -47,8 +47,14 @@ body {
   padding: 5px 10px;
   border: none;
   background-color: var(--Grey-100);
+  opacity: 0.5;
   color: var(--Purple-600);
   font-size: 20px;
+}
+
+.increBtn:hover,
+.decreBtn:hover {
+  opacity: 1;
 }
 
 .decreBtn {
@@ -282,4 +288,15 @@ dialog::backdrop {
 
 .sendComment {
   padding: 30px 30px;
+}
+
+.replyActionBtn:hover,
+.editActionBtn:hover,
+.deleteActionBtn:hover,
+.replyBtn:hover,
+.sentBtn:hover,
+.updateBtn:hover,
+.deleteCancelAction:hover,
+.deleteAcceptAction:hover {
+  opacity: 0.5;
 }
