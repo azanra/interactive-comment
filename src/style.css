@@ -309,3 +309,7 @@ dialog::backdrop {
   padding: 1px 10px;
   border-radius: 5px;
 }
+
+*:disabled {
+  opacity: 0.3;
+}
