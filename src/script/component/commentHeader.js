@@ -201,7 +201,7 @@ const commentHeader = (data, setIsEditing) => {
   };
 
   const renderOwnCommentMark = () => {
-    if (IfDataIsActiveUser()) {
+    if (IfDataIsActiveUser() && !data.isDeleted) {
       const ownCommentMark = elementUtil.createDom(ownCommentMarkAttr);
       return ownCommentMark;
     }

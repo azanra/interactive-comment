@@ -300,3 +300,12 @@ dialog::backdrop {
 .deleteAcceptAction:hover {
   opacity: 0.5;
 }
+
+.ownCommentMark {
+  background-color: var(--Purple-600);
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 1px 10px;
+  border-radius: 5px;
+}
