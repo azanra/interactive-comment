@@ -77,7 +77,7 @@ body {
   border: 3px solid var(--Grey-100);
   position: absolute;
   margin-left: -90px;
-  margin-top: 13px;
+  margin-top: 25px;
 }
 
 body,
@@ -322,4 +322,16 @@ dialog::backdrop {
 
 *:disabled {
   opacity: 0.3;
+}
+
+.commentBody {
+  height: 75px;
+}
+
+.commentContentPara {
+  height: 100%;
+}
+
+.commentContentText {
+  overflow: scroll;
 }
